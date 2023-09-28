@@ -5,7 +5,7 @@ import Card from './Card';
 const AvailableCard = ({ category }) => {
   category = 'Fruit and vegetables';
   return (
-    <article className='available-card '>
+    <article className='available-card flow-3'>
       <h3 className='flow-2'>{category}</h3>
       <ul className='list flex'>
         <Card product={'Avocado'} />

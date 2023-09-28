@@ -4,6 +4,7 @@ import Header from './reusable/Header';
 import AvailableCard from './reusable/AvailableCard';
 import AddCard from './reusable/AddCard';
 import EnterCategory from './reusable/EnterCategory';
+import ItemCard from './reusable/ItemCard';
 
 const Home = () => {
   return (
@@ -18,8 +19,11 @@ const Home = () => {
         <AvailableCard />
         <AvailableCard />
       </div>
-      <div className='operation-card'>
-        <AddCard />
+      <div className='operation-card flex flex-column space-between'>
+        <div>
+          <AddCard />
+          <ItemCard />
+        </div>
         <EnterCategory />
       </div>
     </div>
