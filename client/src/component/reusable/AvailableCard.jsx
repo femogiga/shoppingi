@@ -16,7 +16,7 @@ const AvailableCard = ({ category, productArray }) => {
         <Card product={'Mandarin Nadorcott'} />
         <Card product={'Piele De Sapo Melon'} /> */}
         {productArray.map((item) => (
-          <Card key={item.id} product={item.product_name} />
+          <Card key={item.id} product_name={item.product_name} />
         ))}
       </ul>
     </article>
