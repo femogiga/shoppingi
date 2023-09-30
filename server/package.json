@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@prisma/client": "^5.3.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
+    "postgres": "^3.3.5"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "generate-migration": "drizzle-kit generate:pg --out /db/migrations --schema server/db/schema.js",
+    "migrate": "node db/migrations"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "prisma": "^5.3.1"
+  }
+}

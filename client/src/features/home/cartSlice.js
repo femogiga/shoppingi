@@ -14,7 +14,6 @@ export const cartSlice = createSlice({
     },
     decrement: (state, action) => {
       const item = state.find((item) => item.name === action.payload);
-      //   console.log(item);
       if (item.count <= 0) {
         item.count = 0;
         return;
