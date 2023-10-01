@@ -8,15 +8,16 @@ import ItemCard from './reusable/ItemCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchProducts } from '../features/home/homeSlice';
+import InformationCard from './reusable/InformationCard';
 
 const Home = () => {
-  const dispatch = useDispatch()
-  const products = useSelector((state) => state.home.data)
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.home.data);
   useEffect(() => {
-    dispatch(fetchProducts())
-  },[dispatch])
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
-  console.log('data',products)
+  console.log('data', products);
   return (
     <div className='home'>
       <aside className='sidebar'>
@@ -27,15 +28,22 @@ const Home = () => {
         {/* <AvailableCard />
         <AvailableCard />
         <AvailableCard /> */}
-        {products.map(item => (<AvailableCard key={item.category_name} category={item.category_name}  productArray= {item.products} />))}
+        {products.map((item) => (
+          <AvailableCard
+            key={item.category_name}
+            category={item.category_name}
+            productArray={item.products}
+          />
+        ))}
       </div>
-      <div className='operation-card flex flex-column space-between'>
+      {/* <div className='operation-card flex flex-column space-between'>
         <div className='make-sticky'>
           <AddCard />
           <ItemCard />
         </div>
         <EnterCategory />
-      </div>
+      </div> */}
+      <InformationCard/>
     </div>
   );
 };

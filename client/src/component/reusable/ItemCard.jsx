@@ -8,8 +8,8 @@ const ItemCard = () => {
   console.log(shoppingList);
   return (
     <article>
-      <h5 className='flow-1'>Fruit and vegetable</h5>
-      <ul>
+      <h5 className='flow-1 pad-inline-2'>Fruit and vegetable</h5>
+      <ul className='cart-ul pad-inline-2'>
         {shoppingList.map((product, index) => (
           <ProductCard
             id={product.product_name}

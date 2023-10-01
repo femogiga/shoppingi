@@ -104,9 +104,21 @@ ul {
   padding: 2rem;
 }
 
+.pad-inline-2 {
+  padding-inline: 2rem
+}
+
+
+.font-orange {
+  color: var(--clr-orange);
+}
 
 .clr-orange {
   background-color: var(--clr-orange);
+}
+
+.clr-grey {
+  color: var(--clr-grey);
 }
 
 .width-b {
@@ -175,7 +187,7 @@ ul {
   background-color: var(--clr-cream);
   grid-template-rows: 80vh 20vh;
   height: 100vh;
-  /* position: sticky; */
+  position: sticky;
   /* top: 0; */
   position: relative;
 }
@@ -255,6 +267,10 @@ ul {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .2)
 }
 
+.card:focus {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .5);
+}
+
 .card span {
   color: var(--clr-grey)
 }
@@ -274,8 +290,9 @@ ul {
 
 .make-sticky {
   /* z-index: -3; */
-overflow-x: hidden;
+  overflow-x: hidden;
   overflow-y: auto;
+
 }
 
 ::-webkit-scrollbar {
@@ -360,6 +377,8 @@ overflow-x: hidden;
   border-radius: 9px;
 }
 
+
+
 .remove-border {
   border: none;
 
@@ -406,4 +425,38 @@ overflow-x: hidden;
   border: none;
   color: white;
   background-color: var(--clr-orange);
+}
+
+/* ***************************Information Card***************************************** */
+
+
+.information-card {
+  /* padding: 10vh; */
+  /* background-color: var(--clr-cream); */
+  height: 100vh;
+  /* position: sticky; */
+  /* top: 0; */
+  position: sticky;
+}
+
+
+.information-card>.img-cont>img {
+  width: 18.75rem;
+  height: 13.69rem;
+  border-radius: 25px;
+}
+
+.information-card button {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+}
+
+.add-to-list {
+  background-color: var(--clr-orange);
+  color: white;
+  border: none;
+}
+
+.delete {
+  border: none;
 }
