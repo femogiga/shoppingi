@@ -30,7 +30,7 @@ const Home = () => {
         {products.map(item => (<AvailableCard key={item.category_name} category={item.category_name}  productArray= {item.products} />))}
       </div>
       <div className='operation-card flex flex-column space-between'>
-        <div>
+        <div className='make-sticky'>
           <AddCard />
           <ItemCard />
         </div>

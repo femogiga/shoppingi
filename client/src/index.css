@@ -175,9 +175,9 @@ ul {
   background-color: var(--clr-cream);
   grid-template-rows: 80vh 20vh;
   height: 100vh;
-  position: sticky;
-  top: 0;
-
+  /* position: sticky; */
+  /* top: 0; */
+  position: relative;
 }
 
 .available-card {
@@ -267,8 +267,15 @@ ul {
   height: 80vh; */
   /* background-color: #80485B; */
   z-index: -3;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
+
+}
+
+.make-sticky {
+  /* z-index: -3; */
+overflow-x: hidden;
+  overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
@@ -316,8 +323,12 @@ ul {
   width: 100%;
   /* border: 1px solid black; */
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0..5);
-
+  position: sticky;
+  top: 50rem;
+  left: 0;
+  z-index: 5;
 }
+
 
 .input-text {
   padding: 1rem 3rem;

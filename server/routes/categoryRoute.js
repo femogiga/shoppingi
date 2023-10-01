@@ -1,4 +1,4 @@
-const { categoryproduct } = require('../controllers/categoryController');
+const { categoryproduct ,} = require('../controllers/categoryController');
 
 const router = require('express').Router();
 
