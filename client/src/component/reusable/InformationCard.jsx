@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const InformationCard = () => {
   return (
     <div className='information-card pad-2 flex flex-column space-between row gap-2'>
-      <div className='font-orange'>
-        <p>
+      <div>
+        <Link className='font-orange'>
           <span>&#8592;</span> back
-        </p>
+        </Link>
       </div>
 
       <picture className='img-cont'>

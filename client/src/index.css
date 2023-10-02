@@ -28,6 +28,10 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* ***********************************UTILITY CLASSES***************************************** */
 
 .flex {
@@ -106,6 +110,10 @@ ul {
 
 .pad-inline-2 {
   padding-inline: 2rem
+}
+
+.margin-right-1 {
+  margin-inline-end: 1rem;
 }
 
 
@@ -268,7 +276,7 @@ ul {
 }
 
 .card:focus {
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .3);
 }
 
 .card span {
@@ -459,4 +467,94 @@ ul {
 
 .delete {
   border: none;
+}
+
+/* ************************Add item form************************************************* */
+
+
+.form-card {
+  /* padding: 10vh; */
+  /* background-color: var(--clr-cream); */
+  height: 100vh;
+  /* position: sticky; */
+  /* top: 0; */
+  position: sticky;
+  /* border: 1px solid black; */
+}
+
+fieldset {
+  border: none;
+}
+
+.input-width {
+  padding-block: 1rem;
+  width: 100%;
+  border-radius: 12px;
+  border: none;
+  border: 1px solid var(--clr-input-accent)
+}
+
+.form-card label {
+  display: block
+}
+
+.form-card textarea {
+  width: 100%;
+  height: 7rem;
+  border-radius: 12px;
+  padding: .7rem;
+  border-color: var(--clr-input-accent)
+}
+
+.form-card button {
+  padding: 1rem;
+  border-radius: 12px
+}
+
+.top-title {
+  font-size: 1.8rem;
+}
+
+::placeholder {
+  padding-inline-start: 1rem;
+}
+
+.save {
+  color: white;
+  border: none;
+}
+
+.cancel {
+  border: none;
+}
+
+
+/* ************************************End of home********************************************* */
+
+
+
+
+/* ************************************Start of History********************************************* */
+
+
+.history {
+  margin-inline: auto;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: minmax(3.8rem, .9rem) 1fr minmax(auto, 24rem);
+  /* padding-block: 2rem; */
+  position: relative;
+
+}
+
+.hcard {
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.completed {
+  padding: .05rem .3rem;
+  border: 1px solid black;
+  border-radius: 8px;
 }

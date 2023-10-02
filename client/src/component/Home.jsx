@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchProducts } from '../features/home/homeSlice';
 import InformationCard from './reusable/InformationCard';
+import FormCard from './reusable/FormCard';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,8 @@ const Home = () => {
         </div>
         <EnterCategory />
       </div> */}
-      <InformationCard/>
+      {/* <InformationCard/> */}
+      <FormCard/>
     </div>
   );
 };
