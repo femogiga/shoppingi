@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@prisma/client": "^5.3.1",
+    "@prisma/client": "^5.4.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -14,7 +14,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "generate-migration": "drizzle-kit generate:pg --out /db/migrations --schema server/db/schema.js",
     "migrate": "node db/migrations"
   },
   "keywords": [],
@@ -22,6 +21,6 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "prisma": "^5.3.1"
+    "prisma": "^5.4.1"
   }
 }
