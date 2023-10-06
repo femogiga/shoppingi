@@ -10,10 +10,18 @@ import { useEffect } from 'react';
 import { fetchProducts } from '../features/home/homeSlice';
 import InformationCard from './reusable/InformationCard';
 import FormCard from './reusable/FormCard';
+import OperationCard from './reusable/OperationCard';
 
 const Home = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.home.data);
+  const operationCardStatus = useSelector(
+    (state) => state.home.activeCard.operation
+  );
+  const formCardStatus = useSelector((state) => state.home.activeCard.form);
+  const informationCardStatus = useSelector(
+    (state) => state.home.activeCard.information
+  );
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -44,8 +52,10 @@ const Home = () => {
         </div>
         <EnterCategory />
       </div> */}
-      {/* <InformationCard/> */}
-      <FormCard/>
+
+      {operationCardStatus && <OperationCard />}
+      {informationCardStatus && <InformationCard />}
+      {formCardStatus && <FormCard />}
     </div>
   );
 };

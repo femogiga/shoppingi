@@ -6,6 +6,7 @@
   --clr-cream: #FFF0DE;
   --clr-grey: #C1C1C4;
   --clr-input-accent: #BDBDBD;
+  --clr-lightblue: #56CCF2
 }
 
 
@@ -14,6 +15,9 @@ body {
   margin-inline: auto;
   line-height: 1.5;
 
+}
+a{
+  color:unset;
 }
 
 *,
@@ -112,6 +116,10 @@ a {
   padding-inline: 2rem
 }
 
+.pad-inline-3 {
+  padding-inline: 3rem
+}
+
 .margin-right-1 {
   margin-inline-end: 1rem;
 }
@@ -127,6 +135,10 @@ a {
 
 .clr-grey {
   color: var(--clr-grey);
+}
+
+.clr-lightblue {
+  color: var(--clr-lightblue)
 }
 
 .width-b {
@@ -452,6 +464,7 @@ a {
   width: 18.75rem;
   height: 13.69rem;
   border-radius: 25px;
+  object-fit: cover;
 }
 
 .information-card button {
@@ -545,16 +558,31 @@ fieldset {
   /* padding-block: 2rem; */
   position: relative;
 
+
 }
 
 .hcard {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 1rem;
   border-radius: 12px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cancelled-completed {
+  padding: .05rem .3rem;
+  border-radius: 8px;
 }
 
 .completed {
-  padding: .05rem .3rem;
-  border: 1px solid black;
+
+  border: 1px solid var(--clr-lightblue);
+
+  color: lightblue;
+}
+
+.cancelled {
+
+  border: 1px solid red;
   border-radius: 8px;
+  color: red;
 }

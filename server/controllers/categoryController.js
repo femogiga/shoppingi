@@ -8,10 +8,22 @@ const categoryproduct = async (req, res) => {
         products: true,
       },
     });
-    
+
     res.status(200).json(result);
   } catch (err) {
     res.status(500).json({ err: err });
   }
 };
-module.exports = { categoryproduct };
+
+const getAll = async (req, res) => {
+  try {
+    const results = await prisma.category.findMany({
+    })
+    console.log(results)
+    res.status(200).json(results);
+
+  } catch (error) {
+    res.status(500).json({ err: error })
+  }
+ }
+module.exports = { categoryproduct,getAll };
