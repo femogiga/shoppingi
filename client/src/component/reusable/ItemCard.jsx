@@ -5,7 +5,7 @@ import { increment, decrement } from '../../features/home/cartSlice';
 const ItemCard = () => {
   const dispatch = useDispatch();
   const shoppingList = useSelector((state) => state.cart);
-  console.log(shoppingList);
+
   return (
     <article>
       <h5 className='flow-1 pad-inline-2'>Fruit and vegetable</h5>

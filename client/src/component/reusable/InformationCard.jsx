@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { setActiveCard } from '../../features/home/homeSlice';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
+import { add } from '../../features/home/cartSlice';
 
 const InformationCard = () => {
   const navigate = useNavigate();
@@ -57,7 +58,15 @@ const InformationCard = () => {
       </div>
       <form className='flex justify-center col-gap-2'>
         <button className='delete'>delete</button>
-        <button className='add-to-list'>Add to list</button>
+        <button
+          className='add-to-list'
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(add({ ...data, count: 1 }));
+            dispatch(setActiveCard('operation'));
+          }}>
+          Add to list
+        </button>
       </form>
     </div>
   );

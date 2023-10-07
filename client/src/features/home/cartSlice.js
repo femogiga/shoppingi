@@ -32,12 +32,10 @@ export const cartSlice = createSlice({
       );
       if (!existingItem) {
         state.push(action.payload);
-      }
-      else {
+      } else {
         existingItem.count += 1;
       }
 
-  
       // [state,action.payload]
     },
   },

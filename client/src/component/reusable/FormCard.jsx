@@ -6,6 +6,7 @@ import {
   saveProduct,
 } from '../../features/home/formSlice';
 import { fetchCategory } from '../../features/home/AllCategorySlice';
+import { setActiveCard } from '../../features/home/homeSlice';
 
 const FormCard = () => {
   const imageUrl = useSelector((state) => state.formCard.imageUrl);
@@ -32,6 +33,7 @@ const FormCard = () => {
         imageUrl: imageUrl,
       })
     );
+    await dispatch(setActiveCard('operation'))
   };
 console.log(categoryArray)
   const handleInputChange = (e) => {
