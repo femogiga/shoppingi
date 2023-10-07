@@ -6,7 +6,8 @@
   --clr-cream: #FFF0DE;
   --clr-grey: #C1C1C4;
   --clr-input-accent: #BDBDBD;
-  --clr-lightblue: #56CCF2
+  --clr-lightblue: #56CCF2;
+  --clr-quicksand:#828282;
 }
 
 
@@ -139,6 +140,9 @@ a {
 
 .clr-lightblue {
   color: var(--clr-lightblue)
+}
+.clr-quicksand{
+  color:var(--clr-quicksand);
 }
 
 .width-b {

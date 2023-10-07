@@ -44,4 +44,19 @@ const addProduct = async (req, res) => {
   }
 };
 
-module.exports = { allProducts, addProduct };
+const deleteProduct = async (req, res) => {
+  try {
+    const  id  = req.params.id;
+    const deleted = await prisma.product.delete({
+      where: {
+        id: parseInt(id),
+      },
+    });
+    res.status(200).json({ message: 'Successfully deleted' });
+  } catch (err) {
+    console.error(err)
+    res.status(500).json(err);
+  }
+};
+
+module.exports = { allProducts, addProduct, deleteProduct };
