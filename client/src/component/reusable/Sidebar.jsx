@@ -20,7 +20,7 @@ const Sidebar = () => {
             <span className='material-symbols-outlined'>replay</span>
           </div>
         </NavLink>
-        <NavLink>
+        <NavLink to='/statistics'>
           <div>
             <span className='material-symbols-outlined'>insert_chart</span>
           </div>

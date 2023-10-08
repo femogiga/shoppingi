@@ -7,6 +7,7 @@ import { store } from './features/store';
 import { Provider } from 'react-redux';
 import Home from './component/Home.jsx';
 import History from './component/History.jsx';
+import Statistics from './component/Statistics.jsx';
 
 const Root = () => {
   return (
@@ -16,6 +17,7 @@ const Root = () => {
         <Route path='/home' element={<Home />} />
         {/* <Route path='/home/id' element={<Home />} /> */}
         <Route path='/history' element={<History />} />
+        <Route path='/statistics' element={<Statistics />} />
       </Routes>
     </BrowserRouter>
   );

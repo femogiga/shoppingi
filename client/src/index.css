@@ -7,7 +7,7 @@
   --clr-grey: #C1C1C4;
   --clr-input-accent: #BDBDBD;
   --clr-lightblue: #56CCF2;
-  --clr-quicksand:#828282;
+  --clr-quicksand: #828282;
 }
 
 
@@ -17,8 +17,9 @@ body {
   line-height: 1.5;
 
 }
-a{
-  color:unset;
+
+a {
+  color: unset;
 }
 
 *,
@@ -141,8 +142,9 @@ a {
 .clr-lightblue {
   color: var(--clr-lightblue)
 }
-.clr-quicksand{
-  color:var(--clr-quicksand);
+
+.clr-quicksand {
+  color: var(--clr-quicksand);
 }
 
 .width-b {
@@ -589,4 +591,35 @@ fieldset {
   border: 1px solid red;
   border-radius: 8px;
   color: red;
+}
+
+
+/* ************************************Start of statistics********************************************* */
+
+
+.statistics {
+  margin-inline: auto;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: minmax(3.8rem, .9rem) 1fr minmax(auto, 24rem);
+  /* padding-block: 2rem; */
+  position: relative;
+  padding-block: 2rem;
+
+
+}
+
+
+/* meter::-webkit-meter-bar {
+  background-color: orange;
+} */
+
+meter::-webkit-meter-optimum-value {
+  background-color: orange;
+  /* Change this to your desired color */
+}
+
+.stat-category meter::-webkit-meter-optimum-value {
+  background-color: var(--clr-lightblue);
+  /* Change this to your desired color */
 }
