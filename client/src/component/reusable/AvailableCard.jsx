@@ -9,13 +9,13 @@ const AvailableCard = ({ category, productArray }) => {
   // category = 'Fruit and vegetables';
   const dispatch = useDispatch();
   const handleCardClick = (e, item) => {
-    localStorage.setItem('activeCard',null)
+    localStorage.setItem('activeCard', null);
     e.preventDefault();
-    console.log(item)
+    console.log(item);
 
     dispatch(setActiveCard('informationCard'));
-    dispatch(setInformationCardData({...item,category: category}))
-    localStorage.setItem('activeCard',item)
+    dispatch(setInformationCardData({ ...item, category: category }));
+    localStorage.setItem('activeCard', item);
   };
   return (
     <article className='available-card flow-3'>
@@ -30,9 +30,10 @@ const AvailableCard = ({ category, productArray }) => {
         <Card product={'Piele De Sapo Melon'} /> */}
         {productArray.map((item) => (
           <Card
+            isPlus={true}
             key={item.id}
             product_name={item.product_name}
-            onClick={(e)=>handleCardClick(e,item,category)}
+            onClick={(e) => handleCardClick(e, item, category)}
           />
         ))}
       </ul>

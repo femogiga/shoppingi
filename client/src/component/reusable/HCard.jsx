@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const HCard = ({ holding }) => {
+const HCard = ({ holding,link }) => {
   return (
     <div className='hcard flex col-gap-2 space-between gap-2 flow-2'>
       <p>Grocery List</p>
@@ -17,7 +17,7 @@ const HCard = ({ holding }) => {
           {holding}
         </p>
         <div>
-          <Link>
+          <Link to={link}>
             <span className='material-symbols-outlined'>navigate_next</span>
           </Link>
         </div>

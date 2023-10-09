@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import Home from './component/Home.jsx';
 import History from './component/History.jsx';
 import Statistics from './component/Statistics.jsx';
+import Summary from './component/Summary.jsx';
 
 const Root = () => {
   return (
@@ -18,6 +19,7 @@ const Root = () => {
         {/* <Route path='/home/id' element={<Home />} /> */}
         <Route path='/history' element={<History />} />
         <Route path='/statistics' element={<Statistics />} />
+        <Route path={'/history/:id'} element={<Summary />} />
       </Routes>
     </BrowserRouter>
   );

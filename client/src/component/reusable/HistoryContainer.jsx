@@ -15,7 +15,7 @@ const HistoryContainer = () => {
     <article className='history-card  pad-inline-3'>
       <p className='flow-1'>August 2020</p>
       {/* <HistoryContainer /> */}
-      <HCard holding={'cancelled'} />
+      <HCard holding={'cancelled'}  link={'/history/' + 1}/>
       <HCard holding='completed' />
       <HCard holding='completed' />
       <HCard holding='completed' />

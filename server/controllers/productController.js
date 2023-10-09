@@ -46,7 +46,7 @@ const addProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
   try {
-    const  id  = req.params.id;
+    const id = req.params.id;
     const deleted = await prisma.product.delete({
       where: {
         id: parseInt(id),
@@ -54,7 +54,7 @@ const deleteProduct = async (req, res) => {
     });
     res.status(200).json({ message: 'Successfully deleted' });
   } catch (err) {
-    console.error(err)
+    console.error(err);
     res.status(500).json(err);
   }
 };
