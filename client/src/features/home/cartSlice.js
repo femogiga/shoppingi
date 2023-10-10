@@ -38,6 +38,7 @@ export const cartSlice = createSlice({
 
       // [state,action.payload]
     },
+  
   },
 });
 //

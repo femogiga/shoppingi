@@ -1,11 +1,19 @@
 import ProductCard from './ProductCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement } from '../../features/home/cartSlice';
+import { setActiveInput, setChecked } from '../../features/home/checkboxSlice';
+
 
 const ItemCard2 = () => {
   const dispatch = useDispatch();
   const shoppingList = useSelector((state) => state.cart);
   const result = [];
+  const checkboxChange = useSelector((state) => state.checkbox.checked);
+
+   const handleCheckboxInput = (e) => {
+     dispatch(setChecked());
+     return;
+   };
 
   shoppingList.forEach((item) => {
     const { category, ...rest } = item;
@@ -36,6 +44,7 @@ const ItemCard2 = () => {
                 key={item?.id + 'cs'}
                 productName={item?.product_name}
                 productCount={item?.count}
+                onChange= {handleCheckboxInput}
               />
             ))}
           </>

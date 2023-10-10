@@ -2,10 +2,19 @@ import bottle from '../../assets/source.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setActiveCard } from '../../features/home/homeSlice';
+
 import FormCard from './FormCard';
+import { setActiveInput } from '../../features/home/checkboxSlice';
+
 
 const AddCard = () => {
   const dispatch = useDispatch();
+  let checky = false
+  const handleEditButton = (e) => {
+    // e.preventDefault();
+    dispatch(setActiveInput('checkbox'));
+    
+  };
   return (
     <div className='add-card'>
       <div>
@@ -31,9 +40,9 @@ const AddCard = () => {
           <div className='flex '>
             <h3 className='wd-100'>Shopping list</h3>
             <div>
-              <Link>
+              <button onClick={handleEditButton}>
                 <span className='material-symbols-outlined'>edit</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
