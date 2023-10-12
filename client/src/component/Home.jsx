@@ -22,6 +22,8 @@ const Home = () => {
   const informationCardStatus = useSelector(
     (state) => state.home.activeCard.information
   );
+
+  
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);

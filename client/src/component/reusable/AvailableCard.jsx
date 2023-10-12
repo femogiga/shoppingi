@@ -4,6 +4,7 @@ import Card from './Card';
 import { useDispatch } from 'react-redux';
 import { findById, setActiveCard } from '../../features/home/homeSlice';
 import { setInformationCardData } from '../../features/home/informationCardSlice';
+import { deleteProduct } from '../../features/home/deleteProductSlice';
 
 const AvailableCard = ({ category, productArray }) => {
   // category = 'Fruit and vegetables';
@@ -17,6 +18,8 @@ const AvailableCard = ({ category, productArray }) => {
     dispatch(setInformationCardData({ ...item, category: category }));
     localStorage.setItem('activeCard', item);
   };
+
+  
   return (
     <article className='available-card flow-3'>
       <h3 className='flow-2'>{category}</h3>
@@ -34,6 +37,7 @@ const AvailableCard = ({ category, productArray }) => {
             key={item.id}
             product_name={item.product_name}
             onClick={(e) => handleCardClick(e, item, category)}
+            // onDelete={handleDeleteCard}
           />
         ))}
       </ul>

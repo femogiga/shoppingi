@@ -7,6 +7,7 @@ import formReducer from './home/formSlice';
 import allCategoryReducer from './home/AllCategorySlice';
 import summaryReducer from './summary/summarySlice';
 import checkboxReducer from './home/checkboxSlice';
+import deleteProductReducer from './home/deleteProductSlice';
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
@@ -17,5 +18,6 @@ export const store = configureStore({
     allCategory: allCategoryReducer,
     summary: summaryReducer,
     checkbox: checkboxReducer,
+    deleteProduct: deleteProductReducer,
   },
 });

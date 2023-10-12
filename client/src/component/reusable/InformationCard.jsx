@@ -5,6 +5,7 @@ import { setActiveCard } from '../../features/home/homeSlice';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
 import { add } from '../../features/home/cartSlice';
+import { deleteProduct } from '../../features/home/deleteProductSlice';
 
 const InformationCard = () => {
   const navigate = useNavigate();
@@ -14,17 +15,13 @@ const InformationCard = () => {
     dispatch(setActiveCard('operationCard'));
     localStorage.setItem('activeCard', null);
   };
-  // let data
-  // //
-  // // const productCard = useSelector((state) => state.home.data)
-  // data = localStorage.getItem('activeCard')
-  // console.log(data)
-  //
-  // console.log('proctCard',productCard)
 
   const data = useSelector((state) => state.informationCard.data);
   console.log('myData', data);
-
+  const handleDeleteCard = (e, id) => {
+    e.preventDefault();
+    dispatch(deleteProduct(data?.id));
+  };
   return (
     <div className='information-card pad-2 flex flex-column space-between row gap-2'>
       <div>
@@ -57,7 +54,9 @@ const InformationCard = () => {
         </p>
       </div>
       <form className='flex justify-center col-gap-2'>
-        <button className='delete'>delete</button>
+        <button className='delete' onClick={handleDeleteCard}>
+          delete
+        </button>
         <button
           className='add-to-list'
           onClick={(e) => {
