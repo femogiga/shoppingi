@@ -23,11 +23,11 @@ const allProducts = async (req, res, next) => {
 
 const addProduct = async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const { category_name, product_name, note, imageUrl } = req.body;
 
     const forCat = await getCategories(category_name);
-    console.log('======>for cat', forCat);
+    // console.log('======>for cat', forCat);
     const productAdded = await prisma.product.create({
       data: {
         catId: parseInt(forCat),

@@ -8,6 +8,7 @@ import allCategoryReducer from './home/AllCategorySlice';
 import summaryReducer from './summary/summarySlice';
 import checkboxReducer from './home/checkboxSlice';
 import deleteProductReducer from './home/deleteProductSlice';
+import shoppingListReducer from './home/shoppingList';
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
@@ -19,5 +20,6 @@ export const store = configureStore({
     summary: summaryReducer,
     checkbox: checkboxReducer,
     deleteProduct: deleteProductReducer,
+    shoppingList: shoppingListReducer
   },
 });

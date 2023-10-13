@@ -19,7 +19,7 @@ const getAll = async (req, res) => {
   try {
     const results = await prisma.category.findMany({
     })
-    console.log(results)
+    // console.log(results)
     res.status(200).json(results);
 
   } catch (error) {

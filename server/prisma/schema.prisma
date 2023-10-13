@@ -25,4 +25,31 @@ model Product {
   imageUrl String
   cat    Category    @relation(fields: [catId], references: [id])
   catId  Int
+  shoppingLists ShoppingListOnProduct[]
+
+}
+
+model ShoppingList{
+  id Int @id @default(autoincrement())
+  listName String @unique
+  status Status  @default(ACTIVE)
+products ShoppingListOnProduct[]
+
+}
+
+
+model ShoppingListOnProduct{
+  id Int @default(autoincrement())
+ product Product  @relation(fields: [productId], references: [id])
+  productId Int
+ shoppingList ShoppingList @relation(fields: [shoppingListId], references: [id])
+shoppingListId Int
+count Int
+   @@id([productId, shoppingListId])
+}
+
+enum Status{
+  CANCELLED
+  COMPLETED
+  ACTIVE
 }

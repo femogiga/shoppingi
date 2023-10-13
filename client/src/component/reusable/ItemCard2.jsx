@@ -19,7 +19,7 @@ const ItemCard2 = () => {
     }))
 
   }
-
+  console.log('shoppinList', shoppingList)
   shoppingList.forEach((item) => {
     const { category, ...rest } = item;
 
