@@ -29,7 +29,7 @@ export const homeSlice = createSlice({
             operation: false,
             information: true,
             form: false,
-           
+
           };
           break;
         case 'formCard':
@@ -51,7 +51,7 @@ export const homeSlice = createSlice({
       const result = state.data.find((item) => {
         return (item.products.id = action.payload);
       });
-      console.log('result', result);
+      // console.log('result', result);
       return result;
     },
   },

@@ -3,7 +3,8 @@ const prisma = require('./prismaClient');
 const createList = async (req, res, next) => {
   const listArray = [];
   if (Object.values(req.body).length <= 0) {
-    console.log(Object.values(req.body).length <= 0);
+    console.log(req.body);
+    console.log(Object.key(req.body).length <= 0);
     console.log('nothings sent');
     return;
   }
@@ -13,6 +14,9 @@ const createList = async (req, res, next) => {
     // console.log('listName',listName);
     // console.log('rest=', rest)
 
+    if (req.body.length < 0) {
+      return;
+    }
     const list = await prisma.shoppingList.create({
       data: {
         listName: listName,
@@ -36,6 +40,8 @@ const createList = async (req, res, next) => {
     console.log(err.statusCode);
     console.log('====>', err.message);
     res.status(500).json(err);
+  } finally {
+    await prisma.$disconnect();
   }
 };
 

@@ -32,11 +32,13 @@ model Product {
 model ShoppingList{
   id Int @id @default(autoincrement())
   listName String @unique
-  status Status  @default(ACTIVE)
-products ShoppingListOnProduct[]
+  products ShoppingListOnProduct[]
+  progress   String  @default("ACTIVE")
+  createdAt  DateTime @default(now())
 
 }
-
+//progress Progress  @default(ACTIVE)
+//status Status  @default(ACTIVE)
 
 model ShoppingListOnProduct{
   id Int @default(autoincrement())
@@ -48,8 +50,8 @@ count Int
    @@id([productId, shoppingListId])
 }
 
-enum Status{
-  CANCELLED
-  COMPLETED
-  ACTIVE
-}
+//enum Progress{
+ // CANCELLED
+  //COMPLETED
+  //ACTIVE
+//}

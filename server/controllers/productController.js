@@ -52,10 +52,13 @@ const deleteProduct = async (req, res) => {
         id: parseInt(id),
       },
     });
+    console.log(product)
     res.status(200).json({ message: 'Successfully deleted' });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
+  } finally {
+    await prisma.$disconnect();
   }
 };
 

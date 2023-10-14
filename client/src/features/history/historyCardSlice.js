@@ -1,16 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+export const historyData = createAsyncThunk(
+  'historyCard/historyData',
+  async () => {
+    const response = await fetch('http://localhost:9000/shoppinglist');
+    const data = await response.json();
+    return data;
+  }
+);
 export const historyCardSlice = createSlice({
   name: 'historyCard',
   initialState: {
     cssColor: 'completed',
+    data: [],
   },
 
   reducers: {
-      setColor: (state, action) => {
-         
-          switch (action.payload) {
-
+    setColor: (state, action) => {
+      switch (action.payload) {
         case 'cancelled':
           state.cssColor = 'cancelled';
           break;
@@ -20,8 +27,21 @@ export const historyCardSlice = createSlice({
       }
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(historyData.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(historyData.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.data= [action.payload];
+      })
+      .addCase(historyData.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
+  },
 });
 
-
-export const{setColor} = historyCardSlice.actions
+export const { setColor } = historyCardSlice.actions;
 export default historyCardSlice.reducer;
