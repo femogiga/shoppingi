@@ -3,8 +3,19 @@ import FormCard from './reusable/FormCard';
 import AvailableCard from './reusable/AvailableCard';
 import HCard from './reusable/HCard';
 import HistoryContainer from './reusable/HistoryContainer';
+import InformationCard from './reusable/InformationCard';
+import OperationCard from './reusable/OperationCard';
+import { useSelector } from 'react-redux';
 
 const History = () => {
+  const operationCardStatus = useSelector(
+    (state) => state.home.activeCard.operation
+  );
+  const formCardStatus = useSelector((state) => state.home.activeCard.form);
+  const informationCardStatus = useSelector(
+    (state) => state.home.activeCard.information
+  );
+
   return (
     <div className='home'>
       <aside className='sidebar'>
@@ -24,9 +35,11 @@ const History = () => {
           <HCard />
           <HCard />
         </article> */}
-        <HistoryContainer/>
+        <HistoryContainer />
       </div>
-
+      {operationCardStatus && <OperationCard />}
+      {informationCardStatus && <InformationCard />}
+      {formCardStatus && <FormCard />}
       <FormCard />
     </div>
   );

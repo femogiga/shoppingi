@@ -3,6 +3,7 @@ import { setColor } from '../../features/history/historyCardSlice';
 import { useEffect } from 'react';
 import HCard from './HCard';
 import { historyData } from '../../features/history/historyCardSlice';
+import { dateFormat } from '../../utility/timeUtility';
 
 const HistoryContainer = () => {
   const cssColor = useSelector((state) => state.historyCard.cssColor);
@@ -14,18 +15,18 @@ const HistoryContainer = () => {
     // holding === dispatch(setColor());
     dispatch(historyData());
   }, [dispatch]);
-  console.log('hisdata', hisData);
+  //console.log('hisdata', hisData);
   // let arr = []
   //   for (let keys in hisData) {
   //     arr.push({ [keys]:hisData[keys]})
   //     console.log(arr)
   //   }
-  let arr = []
+  let arr = [];
   // console.log(hisData[0])
   for (let keys in hisData[0]) {
-    arr.push({ keys: keys, value: hisData[0][keys] })
-    console.log('arr',arr)
-   }
+    arr.push({ keys: keys, value: hisData[0][keys] });
+    console.log('arr', arr);
+  }
   return (
     <article className='history-card  pad-inline-3'>
       {/* <p className='flow-1'>August 2020</p>
@@ -40,9 +41,16 @@ const HistoryContainer = () => {
 
       {arr.map((item) => (
         <>
-          <p className='flow-1'>August 2020</p>
+          <p className='flow-1'>
+            {dateFormat('dmy', item?.value[0]?.shoppingList?.createdAt)}
+          </p>
 
-          <HCard holding={'cancelled'} link={'/history/' + 1} />
+          <HCard
+            progress={item?.value[0]?.shoppingList?.progress}
+            link={'/history/' + 1}
+            date={dateFormat('ddmy', item?.value[0]?.shoppingList?.createdAt)}
+            listName={item?.value[0]?.shoppingList?.listName}
+          />
         </>
       ))}
     </article>

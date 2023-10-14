@@ -1,28 +1,37 @@
 import { Link } from 'react-router-dom';
+import { dateFormat } from '../../utility/timeUtility';
 
-const HCard = ({ holding,link }) => {
+const HCard = ({ progress, link, date, listName }) => {
   return (
-    <div className='hcard flex col-gap-2 space-between gap-2 flow-2'>
-      <p>Grocery List</p>
-      <div className='flex  space-between col-gap-2'>
-        <div>
-          <p className='flex clr-grey'>
-            <span className='material-symbols-outlined margin-right-1'>
-              event_note
-            </span>
-            Mon 27.7.2020
+    <Link to={link}>
+      <div className='hcard flex col-gap-2 space-between gap-2 flow-2'>
+        <p>{listName}</p>
+        <div className='flex  space-between col-gap-2'>
+          <div>
+            <p className='flex clr-grey'>
+              <span className='material-symbols-outlined margin-right-1'>
+                event_note
+              </span>
+              {date}
+            </p>
+          </div>
+          <p
+            id='completed'
+            className={`cancelled-completed ${
+              progress === 'ACTIVE'
+                ? 'activestate'
+                : progress === 'COMPLETED'
+                ? 'completed'
+                : 'cancelled'
+            }`}>
+            {progress}
           </p>
-        </div>
-        <p id='completed' className={`cancelled-completed ${holding}`}>
-          {holding}
-        </p>
-        <div>
-          <Link to={link}>
+          <div>
             <span className='material-symbols-outlined'>navigate_next</span>
-          </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

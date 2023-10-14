@@ -614,6 +614,12 @@ fieldset {
   color: red;
 }
 
+.activestate{
+  border: 1px solid lightgreen;
+    border-radius: 8px;
+    color: lightgreen;
+}
+
 
 /* ************************************Start of statistics********************************************* */
 
