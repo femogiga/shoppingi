@@ -40,7 +40,7 @@ const History = () => {
       {operationCardStatus && <OperationCard />}
       {informationCardStatus && <InformationCard />}
       {formCardStatus && <FormCard />}
-      <FormCard />
+      {/* <FormCard /> */}
     </div>
   );
 };

@@ -41,15 +41,17 @@ const HistoryContainer = () => {
 
       {arr.map((item) => (
         <>
-          <p className='flow-1'>
+          <p className='flow-1' key={item?.value[0]?.shoppingList?.listName}>
             {dateFormat('dmy', item?.value[0]?.shoppingList?.createdAt)}
           </p>
 
           <HCard
             progress={item?.value[0]?.shoppingList?.progress}
-            link={'/history/' + 1}
+            link ={`/history/${parseInt(item.keys)}`}
             date={dateFormat('ddmy', item?.value[0]?.shoppingList?.createdAt)}
             listName={item?.value[0]?.shoppingList?.listName}
+            key={item?.keys + 'd'}
+            linkData={item?.value}
           />
         </>
       ))}

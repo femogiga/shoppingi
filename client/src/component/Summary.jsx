@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector ,useDispatch} from 'react-redux';
 import AddCard from './reusable/AddCard';
 import FormCard from './reusable/FormCard';
 import InformationCard from './reusable/InformationCard';
@@ -6,6 +6,12 @@ import OperationCard from './reusable/OperationCard';
 import Sidebar from './reusable/Sidebar';
 import Card from './reusable/Card';
 import Modal from './reusable/Modal';
+import { useLocation } from 'react-router-dom';
+import SummaryHeader from './reusable/SummaryHeader';
+import shoppingList from '../features/home/shoppingList';
+import { dateFormat } from './../utility/timeUtility';
+import { useEffect } from 'react';
+import { fetchCategory } from '../features/home/AllCategorySlice';
 
 const Summary = () => {
   const operationCardStatus = useSelector(
@@ -15,13 +21,34 @@ const Summary = () => {
   const informationCardStatus = useSelector(
     (state) => state.home.activeCard.information
   );
+  const categories = useSelector((state) => state.allCategory.data);
+const dispatch = useDispatch()
+  // const summaryData =  useSelector((state) => state.historyCard.data)
+  //   console.log('summaryData',summaryData)
+  //
+  const location = useLocation();
+  const { from } = location.state;
+  console.log('from', from);
+
+  useEffect(() => {
+    dispatch(fetchCategory());
+  }, [dispatch]);
+  console.log('categoroies', categories);
+
+  const mapCategories = (id) => {
+    const toCat = categories.map(items => {
+      if(id === items.id)
+      return items.category_name
+    })
+    return toCat
+  }
   return (
     <div className='summary'>
       <aside className='sidebar'>
         <Sidebar />
       </aside>
       <div className='body'>
-        <section>
+        {/* <section>
           <h2>Eero's farewell party</h2>
           <div>
             <p className='flex clr-grey'>
@@ -31,23 +58,29 @@ const Summary = () => {
               Mon 27.7.2020
             </p>
           </div>
-        </section>
+        </section> */}
+        <SummaryHeader
+          title={from[0].shoppingList.listName}
+          createdAt={dateFormat('ddmy', from[0].shoppingList.createdAt)}
+
+        />
+
         <article className='flow-3'>
-          <p className='flow-1'>Cookies</p>
+          <p className='flow-1'>{mapCategories(from[5].product.catId )}</p>
           <div className='flex col-gap-2'>
             <Card product_name={'Avocado'} />
             <Card product_name={'Doris truffle'} />
           </div>
         </article>
 
-        <article>
+        {/* <article>
           <p className='flow-1'>Beverages</p>
           <div className='flex col-gap-1'>
             <Card product_name={'Coca-cola'} />
             <Card product_name={'Beer'} />
             <Card product_name={'Cider'} />
           </div>
-        </article>
+        </article> */}
         <Modal />
       </div>
       {operationCardStatus && <OperationCard />}

@@ -7,8 +7,8 @@ const allList = async (req, res) => {
     const result = await prisma.shoppingListOnProduct.findMany({
       include: {
         product: true,
-
         shoppingList: true,
+       
       },
     });
     console.log('result=', result);

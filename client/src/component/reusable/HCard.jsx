@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { dateFormat } from '../../utility/timeUtility';
 
-const HCard = ({ progress, link, date, listName }) => {
+const HCard = ({ progress, link, date, listName ,linkData}) => {
   return (
-    <Link to={link}>
+    <Link to={link} state={{from:linkData}}>
       <div className='hcard flex col-gap-2 space-between gap-2 flow-2'>
         <p>{listName}</p>
         <div className='flex  space-between col-gap-2'>
