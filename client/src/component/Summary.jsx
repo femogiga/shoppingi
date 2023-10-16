@@ -1,4 +1,4 @@
-import { useSelector ,useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AddCard from './reusable/AddCard';
 import FormCard from './reusable/FormCard';
 import InformationCard from './reusable/InformationCard';
@@ -22,7 +22,7 @@ const Summary = () => {
     (state) => state.home.activeCard.information
   );
   const categories = useSelector((state) => state.allCategory.data);
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // const summaryData =  useSelector((state) => state.historyCard.data)
   //   console.log('summaryData',summaryData)
   //
@@ -35,13 +35,45 @@ const dispatch = useDispatch()
   }, [dispatch]);
   console.log('categoroies', categories);
 
+  // const mapCategories = (id) => {
+  //   const toCat = categories.map(items => {
+  //     if(id === items.id)
+  //     return items.category_name
+  //   })
+  //   return toCat
+  // }
+
   const mapCategories = (id) => {
-    const toCat = categories.map(items => {
-      if(id === items.id)
-      return items.category_name
-    })
-    return toCat
+    const category = categories.find((item) => item.id === id);
+    return category ? category.category_name : '';
+  };
+
+  const data = [
+    // Your data here
+  ];
+
+  const result = [];
+  const catIdGroups = {};
+
+  from.forEach((item) => {
+    const { catId, ...rest } = item.product;
+
+    if (!catIdGroups[catId]) {
+      catIdGroups[catId] = [rest];
+    } else {
+      catIdGroups[catId].push(rest);
+    }
+  });
+
+  for (const catId in catIdGroups) {
+    result.push({
+      catId: catId,
+      products: catIdGroups[catId],
+    });
   }
+
+  console.log('result', result);
+
   return (
     <div className='summary'>
       <aside className='sidebar'>
@@ -59,19 +91,30 @@ const dispatch = useDispatch()
             </p>
           </div>
         </section> */}
+
         <SummaryHeader
           title={from[0].shoppingList.listName}
           createdAt={dateFormat('ddmy', from[0].shoppingList.createdAt)}
-
         />
-
-        <article className='flow-3'>
-          <p className='flow-1'>{mapCategories(from[5].product.catId )}</p>
-          <div className='flex col-gap-2'>
-            <Card product_name={'Avocado'} />
-            <Card product_name={'Doris truffle'} />
-          </div>
-        </article>
+        {result.map((item, index) => (
+          <article className='flow-3' key={index}>
+            <p className='flow-1'>
+              {/* {mapCategories(from[parseInt(item.catId)].product.catId)} */}
+              {mapCategories(parseInt(item.catId))}
+            </p>
+            <div className='flex col-gap-2'>
+              {item.products.map(
+                (product, index) => (
+                  <Card
+                    product_name={product.product_name}
+                    key={product.product_name}
+                  />
+                )
+                // <Card product_name={'Doris truffle'} />
+              )}
+            </div>
+          </article>
+        ))}
 
         {/* <article>
           <p className='flow-1'>Beverages</p>
@@ -81,7 +124,7 @@ const dispatch = useDispatch()
             <Card product_name={'Cider'} />
           </div>
         </article> */}
-        <Modal />
+        {/* <Modal /> */}
       </div>
       {operationCardStatus && <OperationCard />}
       {informationCardStatus && <InformationCard />}

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getListName, saveShoppingList } from '../../features/home/shoppingList';
+import { getListName, saveShoppingList ,clear} from '../../features/home/shoppingList';
 
 const EnterCategory = () => {
   const data = useSelector((state) => state.cart);
@@ -15,6 +15,7 @@ const EnterCategory = () => {
     console.log('listName', listName);
     console.log({ listName: listName,data });
     dispatch(saveShoppingList({ listName: listName, ...data }));
+    dispatch(clear())
   };
 
   return (

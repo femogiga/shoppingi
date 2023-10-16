@@ -27,7 +27,10 @@ const shoppingListSlice = createSlice({
         getListName: (state, action) => {
             const { field, value } = action.payload
             state[field] = value
-      }
+      },
+      clear: (state, action) => {
+        state.listName=''
+       }
   },
 
   extraReducers: (builder) => {
@@ -44,5 +47,5 @@ const shoppingListSlice = createSlice({
   },
 });
 
-export const {getListName, extraReducers} = shoppingListSlice.actions
+export const {getListName, extraReducers,clear} = shoppingListSlice.actions
 export default shoppingListSlice.reducer
