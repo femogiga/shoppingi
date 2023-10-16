@@ -25,16 +25,7 @@ const History = () => {
         <div className='body-container '>
           <h2 className='pad-inline-3'>Shopping history</h2>
         </div>
-        {/* <article className='history-card  pad-inline-3'>
-          <p className='flow-1'>August 2020</p>
-          <HistoryContainer/>
-          <HCard />
-          <HCard />
-          <HCard />
-          <HCard />
-          <HCard />
-          <HCard />
-        </article> */}
+
         <HistoryContainer />
       </div>
       {operationCardStatus && <OperationCard />}

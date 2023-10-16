@@ -6,7 +6,7 @@ import OperationCard from './reusable/OperationCard';
 import Sidebar from './reusable/Sidebar';
 import Card from './reusable/Card';
 import Modal from './reusable/Modal';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SummaryHeader from './reusable/SummaryHeader';
 import shoppingList from '../features/home/shoppingList';
 import { dateFormat } from './../utility/timeUtility';
@@ -35,14 +35,6 @@ const Summary = () => {
   }, [dispatch]);
   console.log('categoroies', categories);
 
-  // const mapCategories = (id) => {
-  //   const toCat = categories.map(items => {
-  //     if(id === items.id)
-  //     return items.category_name
-  //   })
-  //   return toCat
-  // }
-
   const mapCategories = (id) => {
     const category = categories.find((item) => item.id === id);
     return category ? category.category_name : '';
@@ -57,11 +49,12 @@ const Summary = () => {
 
   from.forEach((item) => {
     const { catId, ...rest } = item.product;
+    const count = item.count;
 
     if (!catIdGroups[catId]) {
-      catIdGroups[catId] = [rest];
+      catIdGroups[catId] = [{ ...rest, count }];
     } else {
-      catIdGroups[catId].push(rest);
+      catIdGroups[catId].push({ ...rest, count });
     }
   });
 
@@ -80,20 +73,13 @@ const Summary = () => {
         <Sidebar />
       </aside>
       <div className='body'>
-        {/* <section>
-          <h2>Eero's farewell party</h2>
-          <div>
-            <p className='flex clr-grey'>
-              <span className='material-symbols-outlined margin-right-1'>
-                event_note
-              </span>
-              Mon 27.7.2020
-            </p>
-          </div>
-        </section> */}
-
+        <div className='flow-2'>
+          <Link to={'/history'} className='font-orange'>
+            <span>&#8592;</span> back
+          </Link>
+        </div>
         <SummaryHeader
-          title={from[0].shoppingList.listName}
+          title={from[0]?.shoppingList?.listName}
           createdAt={dateFormat('ddmy', from[0].shoppingList.createdAt)}
         />
         {result.map((item, index) => (
@@ -108,6 +94,8 @@ const Summary = () => {
                   <Card
                     product_name={product.product_name}
                     key={product.product_name}
+                    onClick={(e) => e.preventDefault()}
+                    count={product.count}
                   />
                 )
                 // <Card product_name={'Doris truffle'} />

@@ -3,7 +3,7 @@ import { dateFormat } from '../../utility/timeUtility';
 
 const HCard = ({ progress, link, date, listName ,linkData}) => {
   return (
-    <Link to={link} state={{from:linkData}}>
+    <Link to={link} state={{ from: linkData }}>
       <div className='hcard flex col-gap-2 space-between gap-2 flow-2'>
         <p>{listName}</p>
         <div className='flex  space-between col-gap-2'>
@@ -17,13 +17,13 @@ const HCard = ({ progress, link, date, listName ,linkData}) => {
           </div>
           <p
             id='completed'
-            className={`cancelled-completed ${
-              progress === 'ACTIVE'
+            className={`cancelled-completed  ${
+              progress === 'Active'
                 ? 'activestate'
-                : progress === 'COMPLETED'
+                : progress === 'Completed'
                 ? 'completed'
                 : 'cancelled'
-            }`}>
+            }`} style={{textTransform:'capitalize'}}>
             {progress}
           </p>
           <div>

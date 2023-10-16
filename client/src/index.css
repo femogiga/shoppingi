@@ -82,6 +82,9 @@ a {
 .row-gap-3 {
   row-gap: 3rem
 }
+.flow-point-5 {
+  margin-block-end: .5rem;
+}
 
 .flow-1 {
   margin-block-end: 1rem;
@@ -185,6 +188,10 @@ a {
 
 .wd-100 {
   width: 100%;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 /* **************************************************************************************** */

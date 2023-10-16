@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { add } from '../../features/home/cartSlice';
 
-const Card = ({ product_name, onClick, isPlus }) => {
+const Card = ({ product_name, onClick, isPlus, count }) => {
   const dispatch = useDispatch();
   return (
     <li className='list-item'>
@@ -12,13 +12,12 @@ const Card = ({ product_name, onClick, isPlus }) => {
         //   e.preventDefault();
         //  dispatch(add({product_name: product_name,count:1 }));
         //  }}>
-        onClick={onClick}
-        >
+        onClick={onClick}>
         <p>{product_name}</p>
         {isPlus ? (
           <span className='material-symbols-outlined'>add</span>
         ) : (
-          <p className='text-count'>{'6pcs'} </p>
+          <p className='text-count'>{`${count}pcs`} </p>
         )}
       </Link>
     </li>
