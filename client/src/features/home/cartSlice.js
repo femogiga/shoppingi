@@ -39,11 +39,14 @@ export const cartSlice = createSlice({
 
       // [state,action.payload]
     },
+    deleteItem: (state, action) => {
+      return state.filter((item) => item.product_name !== action.payload);
+    },
     // saveShoppingList: (state, action) => {
 
     // }
   },
 });
 //
-export const { increment, decrement, add } = cartSlice.actions;
+export const { increment, decrement, add,deleteItem } = cartSlice.actions;
 export default cartSlice.reducer;

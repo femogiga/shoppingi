@@ -23,7 +23,6 @@ const Home = () => {
     (state) => state.home.activeCard.information
   );
 
-  
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -36,9 +35,7 @@ const Home = () => {
       </aside>
       <div className='body'>
         <Header />
-        {/* <AvailableCard />
-        <AvailableCard />
-        <AvailableCard /> */}
+
         {products.map((item) => (
           <AvailableCard
             key={item.category_name}
@@ -47,13 +44,6 @@ const Home = () => {
           />
         ))}
       </div>
-      {/* <div className='operation-card flex flex-column space-between'>
-        <div className='make-sticky'>
-          <AddCard />
-          <ItemCard />
-        </div>
-        <EnterCategory />
-      </div> */}
 
       {operationCardStatus && <OperationCard />}
       {informationCardStatus && <InformationCard />}

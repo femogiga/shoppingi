@@ -638,7 +638,7 @@ fieldset {
   grid-template-columns: minmax(3.8rem, .9rem) 1fr minmax(auto, 24rem);
   /* padding-block: 2rem; */
   position: relative;
-  padding-block: 2rem;
+  /* padding-block: 2rem; */
 
 
 }
