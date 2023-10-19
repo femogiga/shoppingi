@@ -72,12 +72,16 @@ const getActiveList = async (req, res) => {
       where: {
         progress: 'Active',
       },
+
     });
+
     console.log(activeList);
     res.status(200).json(activeList);
   } catch (err) {
     res.status(500).json(activeList);
   }
 };
+
+
 
 module.exports = { createList, updateShoppingState, getActiveList };
