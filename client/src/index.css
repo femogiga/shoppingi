@@ -82,6 +82,7 @@ a {
 .row-gap-3 {
   row-gap: 3rem
 }
+
 .flow-point-5 {
   margin-block-end: .5rem;
 }
@@ -172,6 +173,10 @@ a {
 .bg-white {
   background-color: white;
 
+}
+
+.bg-lightblue{
+  background-color: var(--clr-lightblue);
 }
 
 .bg-red {
@@ -477,7 +482,7 @@ a {
   border: 2px solid #007bff;
   /* outline: 1px solid red; */
   outline-offset: -2px;
-  padding:4px;
+  padding: 4px;
 
 }
 
@@ -621,10 +626,10 @@ fieldset {
   color: red;
 }
 
-.activestate{
+.activestate {
   border: 1px solid lightgreen;
-    border-radius: 8px;
-    color: lightgreen;
+  border-radius: 8px;
+  color: lightgreen;
 }
 
 
@@ -677,4 +682,10 @@ meter::-webkit-meter-optimum-value {
   font-size: 12px;
   align-self: center;
   color: var(--clr-orange)
+}
+
+
+.complete button {
+  padding: 1rem;
+  border-radius: 12px
 }

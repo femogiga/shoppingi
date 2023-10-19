@@ -33,7 +33,7 @@ model ShoppingList{
   id Int @id @default(autoincrement())
   listName String @unique
   products ShoppingListOnProduct[]
-  progress   String  @default("ACTIVE")
+  progress   String  @default("Active")
   createdAt  DateTime @default(now())
 
 }

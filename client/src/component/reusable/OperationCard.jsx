@@ -1,4 +1,5 @@
 import AddCard from './AddCard';
+import Complete from './Complete';
 import EnterCategory from './EnterCategory';
 import ItemCard from './ItemCard';
 import ItemCard2 from './ItemCard2';
@@ -9,9 +10,17 @@ const OperationCard = () => {
       <div className='make-sticky'>
         <AddCard />
         {/* <ItemCard /> */}
-        <ItemCard2/>
+        <ItemCard2 />
       </div>
-      <EnterCategory />
+      {
+        <>
+          {window.location.href.includes('home') ? (
+            <EnterCategory />
+          ) : (
+            <Complete />
+          )}
+        </>
+      }
     </div>
   );
 };

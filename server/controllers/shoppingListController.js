@@ -45,4 +45,39 @@ const createList = async (req, res, next) => {
   }
 };
 
-module.exports = { createList };
+const updateShoppingState = async (req, res) => {
+  // const { id } = req.params;
+  const { id, progress } = req.body;
+  try {
+    console.log('progress', progress);
+
+    const result = await prisma.shoppingList.update({
+      where: {
+        id: parseInt(id),
+      },
+      data: {
+        progress: progress,
+      },
+    });
+    res.status(200).json(result);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
+
+const getActiveList = async (req, res) => {
+  try {
+    const activeList = await prisma.shoppingList.findMany({
+      where: {
+        progress: 'Active',
+      },
+    });
+    console.log(activeList);
+    res.status(200).json(activeList);
+  } catch (err) {
+    res.status(500).json(activeList);
+  }
+};
+
+module.exports = { createList, updateShoppingState, getActiveList };

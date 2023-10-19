@@ -1,23 +1,26 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const deleteProduct = createAsyncThunk('deleteProduct/deleteProduct', async (id) => {
-  const response = await fetch(`http://localhost:9000/products/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const data = await response.json();
-  return data;
-});
+export const deleteProduct = createAsyncThunk(
+  'deleteProduct/deleteProduct',
+  async (id) => {
+    const response = await fetch(`http://localhost:9000/products/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    return data;
+  }
+);
 
 const deleteProductSlice = createSlice({
   name: 'deleteProduct',
   initialState: {},
-    reducers: {
-        itemDeleted: (state, action) => {
-            return state.filter(item=> item.id === action.payload)
-      }
+  reducers: {
+    itemDeleted: (state, action) => {
+      return state.filter((item) => item.id === action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -33,5 +36,4 @@ const deleteProductSlice = createSlice({
   },
 });
 
-
-export default deleteProductSlice.reducer
+export default deleteProductSlice.reducer;
