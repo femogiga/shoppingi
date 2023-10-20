@@ -18,18 +18,22 @@ const HistoryContainer = () => {
   }, [dispatch]);
 
   let arr = [];
- 
+
   for (let keys in hisData[0]) {
     arr.push({ keys: keys, value: hisData[0][keys] });
     console.log('arr', arr);
   }
+
+
+  
   return (
     <article className='history-card  pad-inline-3'>
-
-
-      {arr.map((item) => (
+      {arr.map((item, index) => (
         <>
-          <p className='flow-1' key={item?.value[0]?.shoppingList?.listName}>
+          <p
+            className='flow-1'
+             key={item?.value[0]?.shoppingList?.listName}
+            >
             {dateFormat('dmy', item?.value[0]?.shoppingList?.createdAt)}
           </p>
 
@@ -38,7 +42,8 @@ const HistoryContainer = () => {
             link={`/history/${parseInt(item.keys)}`}
             date={dateFormat('ddmy', item?.value[0]?.shoppingList?.createdAt)}
             listName={item?.value[0]?.shoppingList?.listName}
-            key={item?.keys + 'd'}
+             key={item?.keys }
+
             linkData={item?.value}
           />
         </>

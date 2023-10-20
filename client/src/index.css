@@ -195,9 +195,9 @@ a {
   width: 100%;
 }
 
-.capitalize {
+/* .capitalize {
   text-transform: capitalize;
-}
+} */
 
 /* **************************************************************************************** */
 .home {
@@ -617,6 +617,10 @@ fieldset {
   border: 1px solid var(--clr-lightblue);
 
   color: lightblue;
+
+}
+.capitalize{
+  text-transform: capitalize;
 }
 
 .cancelled {

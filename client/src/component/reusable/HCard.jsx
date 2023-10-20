@@ -16,14 +16,15 @@ const HCard = ({ progress, link, date, listName ,linkData}) => {
             </p>
           </div>
           <p
-            id='completed'
+            // id='completed'
             className={`cancelled-completed  ${
-              progress === 'Active'
+              progress === ('Active' || 'ACTIVE')
                 ? 'activestate'
                 : progress === 'Completed'
                 ? 'completed'
                 : 'cancelled'
-            }`} style={{textTransform:'capitalize'}}>
+              }`}
+          >
             {progress}
           </p>
           <div>

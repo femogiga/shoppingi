@@ -19,7 +19,8 @@ export const homeSlice = createSlice({
       information: false,
       form: false,
     },
-    informationCardData:[]
+    informationCardData: [],
+    search:''
   },
   reducers: {
     setActiveCard: (state, action) => {
@@ -47,6 +48,10 @@ export const homeSlice = createSlice({
           };
       }
     },
+
+    handleInputChange: (state, action) => {
+      state.search = action.payload
+    },
     findById: (state, action) => {
       const result = state.data.find((item) => {
         return (item.products.id = action.payload);
@@ -54,6 +59,9 @@ export const homeSlice = createSlice({
       // console.log('result', result);
       return result;
     },
+    searchProducts: (state, action) => {
+     return state.data.filter(item=> item.product_name==(state.search))
+     }
   },
   extraReducers: (builder) => {
     builder
@@ -71,5 +79,6 @@ export const homeSlice = createSlice({
   },
 });
 
-export const { setActiveCard, findById } = homeSlice.actions;
+export const { setActiveCard, findById, searchProducts, handleInputChange } =
+  homeSlice.actions;
 export default homeSlice.reducer;
