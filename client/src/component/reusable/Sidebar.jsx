@@ -2,11 +2,14 @@ import { useSelector } from 'react-redux';
 import logo from '../../assets/logo.svg';
 import { NavLink } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
-import Button from '@mui/material/Button';
+
+
 
 
 const Sidebar = () => {
   const cart = useSelector((state) => state.cart);
+  const visible = useSelector((state) => state.sidebar.visibility);
+  console.log(visible)
   console.log(cart.length);
   return (
     <div className='sidebar-bar  flex flex-column space-between wd100 align-items-center pb-2'>
@@ -46,7 +49,7 @@ const Sidebar = () => {
           style={{ color: 'white' }}>
           shopping_cart
         </span>
-        <span
+        {cart.length > 0 ? (<span
           className='bg-red'
           style={{
             backgroundColor: 'red',
@@ -59,7 +62,7 @@ const Sidebar = () => {
             borderRadius: '.2rem',
           }}>
           {cart.length}
-        </span>
+        </span>) : null}
       </div>
     </div>
   );
