@@ -13,7 +13,7 @@ const Card = ({ product_name, onClick, isPlus, count }) => {
         //  dispatch(add({product_name: product_name,count:1 }));
         //  }}>
         onClick={onClick}>
-        <p>{product_name}</p>
+        <p style={{ fontWeight: 'bold' }}>{product_name}</p>
         {isPlus ? (
           <span className='material-symbols-outlined'>add</span>
         ) : (

@@ -5,7 +5,7 @@ const HCard = ({ progress, link, date, listName ,linkData}) => {
   return (
     <Link to={link} state={{ from: linkData }}>
       <div className='hcard flex col-gap-2 space-between gap-2 flow-2'>
-        <p>{listName}</p>
+        <p style={{fontWeight:'bold'}}>{listName}</p>
         <div className='flex  space-between col-gap-2'>
           <div>
             <p className='flex clr-grey'>
@@ -17,7 +17,7 @@ const HCard = ({ progress, link, date, listName ,linkData}) => {
           </div>
           <p
             // id='completed'
-            className={`cancelled-completed  ${
+            className={` fs-sm cancelled-completed  ${
               progress === ('Active' || 'ACTIVE')
                 ? 'activestate'
                 : progress === 'Completed'

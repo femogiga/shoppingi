@@ -1,6 +1,9 @@
 import { useSelector } from 'react-redux';
 import logo from '../../assets/logo.svg';
 import { NavLink } from 'react-router-dom';
+import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button';
+
 
 const Sidebar = () => {
   const cart = useSelector((state) => state.cart);
@@ -13,19 +16,25 @@ const Sidebar = () => {
       <div className='three-icons flex flex-column space-between'>
         <NavLink to='/home'>
           <div>
-            <span className='material-symbols-outlined'>
-              format_list_bulleted
-            </span>
+            <Tooltip title='home'>
+              <span className='material-symbols-outlined'>
+                format_list_bulleted
+              </span>
+            </Tooltip>
           </div>
         </NavLink>
         <NavLink to='/history'>
           <div>
-            <span className='material-symbols-outlined'>replay</span>
+            <Tooltip title='history'>
+              <span className='material-symbols-outlined'>replay</span>
+            </Tooltip>
           </div>
         </NavLink>
         <NavLink to='/statistics'>
           <div>
-            <span className='material-symbols-outlined'>insert_chart</span>
+            <Tooltip title='Statistics'>
+              <span className='material-symbols-outlined'>insert_chart</span>
+            </Tooltip>
           </div>
         </NavLink>
       </div>

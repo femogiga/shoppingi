@@ -16,6 +16,7 @@ body {
   max-width: 1300px;
   margin-inline: auto;
   line-height: 1.5;
+  font-family: 'Quicksand', sans-serif;
 
 }
 
@@ -175,7 +176,7 @@ a {
 
 }
 
-.bg-lightblue{
+.bg-lightblue {
   background-color: var(--clr-lightblue);
 }
 
@@ -259,6 +260,10 @@ a {
 
 .list-item {
   justify-self: flex-start;
+}
+
+.fs-sm {
+  font-size: 0.75rem;
 }
 
 
@@ -608,8 +613,10 @@ fieldset {
 }
 
 .cancelled-completed {
-  padding: .05rem .3rem;
+  padding: .2rem;
   border-radius: 8px;
+  width:5rem;
+  text-align: center;
 }
 
 .completed {
@@ -619,7 +626,8 @@ fieldset {
   color: lightblue;
 
 }
-.capitalize{
+
+.capitalize {
   text-transform: capitalize;
 }
 
