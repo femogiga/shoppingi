@@ -11,6 +11,7 @@ import { fetchProducts } from '../features/home/homeSlice';
 import InformationCard from './reusable/InformationCard';
 import FormCard from './reusable/FormCard';
 import OperationCard from './reusable/OperationCard';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,14 +23,14 @@ const Home = () => {
   const informationCardStatus = useSelector(
     (state) => state.home.activeCard.information
   );
-
+  const [parent, enableAnimations, enable] = useAutoAnimate();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
   console.log('data', products);
   return (
-    <div className='home'>
+    <div className='home' ref={parent}>
       <aside className='sidebar'>
         <Sidebar />
       </aside>

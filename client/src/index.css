@@ -195,6 +195,9 @@ a {
 .wd-100 {
   width: 100%;
 }
+.font-bold{
+  font-weight: bold;
+}
 
 /* .capitalize {
   text-transform: capitalize;

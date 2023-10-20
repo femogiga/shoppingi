@@ -36,7 +36,7 @@ const ProductCard = ({
 
   return (
     <li className='product-card flex space-between place-items flow-1'>
-      <p className={''} style={{ textDecoration: `${color}` }}>
+      <p className={'font-bold'} style={{ textDecoration: `${color}` }}>
         {productName}
       </p>
       <div

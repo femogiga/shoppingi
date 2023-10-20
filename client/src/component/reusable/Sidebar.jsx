@@ -9,8 +9,8 @@ import Tooltip from '@mui/material/Tooltip';
 const Sidebar = () => {
   const cart = useSelector((state) => state.cart);
   const visible = useSelector((state) => state.sidebar.visibility);
-  console.log(visible)
-  console.log(cart.length);
+  // console.log(visible)
+  // console.log(cart.length);
   return (
     <div className='sidebar-bar  flex flex-column space-between wd100 align-items-center pb-2'>
       <picture>
