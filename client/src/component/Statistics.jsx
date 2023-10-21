@@ -61,6 +61,27 @@ const Statistics = () => {
     return acc;
   }, {});
 
+  const groupedDataByCategory = newArr.reduce((acc, current) => {
+    const { product_name, count } = current;
+
+    if (acc[product_name]) {
+      acc[product_name] += count;
+    } else {
+      acc[product_name] = count;
+    }
+    return acc;
+  }, {});
+  const sortedGroupedData = Object.keys(groupedDataByCategory)
+    .sort((a, b) => groupedDataByCategory[b] - groupedDataByCategory[a])
+    .map((key) => ({
+      product_name: key,
+      count: groupedDataByCategory[key],
+    }));
+
+  console.log(sortedGroupedData);
+
+  console.log('grop', groupedDataByCategory);
+  //
   // Converting the object back to an array
   const result = Object.values(groupedData);
 
@@ -72,8 +93,8 @@ const Statistics = () => {
   };
   const totalCount = result.reduce((acc, currentValue) => {
     // console.log('curval', currentValue);
-    return acc + currentValue.count
-  },0)
+    return acc + currentValue.count;
+  }, 0);
 
   console.log('totalCount', totalCount);
   return (
@@ -86,16 +107,16 @@ const Statistics = () => {
           <div>
             <h2 className='flow-2'>Top Items</h2>
             <Meter
-              product={result[0]?.product_name}
-              stat={parseInt((result[0]?.count / totalCount) * 100)}
+              product={sortedGroupedData[0]?.product_name}
+              stat={parseInt((sortedGroupedData[0]?.count / totalCount) * 100)}
             />
             <Meter
-              product={result[1]?.product_name}
-              stat={parseInt((result[1]?.count / totalCount) * 100)}
+              product={sortedGroupedData[1]?.product_name}
+              stat={parseInt((sortedGroupedData[1]?.count / totalCount) * 100)}
             />
             <Meter
-              product={result[2]?.product_name}
-              stat={parseInt((result[2]?.count / totalCount) * 100)}
+              product={sortedGroupedData[2]?.product_name}
+              stat={parseInt((sortedGroupedData[2]?.count / totalCount) * 100)}
             />
           </div>
           <div className='stat-category'>
