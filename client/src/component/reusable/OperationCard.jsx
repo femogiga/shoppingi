@@ -1,4 +1,5 @@
 import { Button } from '@mui/material';
+
 import AddCard from './AddCard';
 import Complete from './Complete';
 import EnterCategory from './EnterCategory';
@@ -10,7 +11,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCancelOpen, setCompleteOpen ,setModalClose} from '../../features/home/modalSlice';
+import {
+  setCancelOpen,
+  setCompleteOpen,
+  setModalClose,
+} from '../../features/home/modalSlice';
 import { saveAsComplete } from '../../features/history/completeSlice';
 import { useParams } from 'react-router-dom';
 
@@ -43,6 +48,7 @@ const OperationCard = () => {
   return (
     <div className='operation-card flex flex-column space-between'>
       <Dialog
+        sx={{ maxWidth: '30rem', marginInline: 'auto' }}
         open={completeOpen}
         onClose={'handleClose'}
         aria-labelledby='alert-dialog-title'
@@ -52,14 +58,35 @@ const OperationCard = () => {
         </DialogTitle>
         <DialogContent></DialogContent>
         <DialogActions>
-          <Button onClick={()=>dispatch(setModalClose())}>cancel</Button>
-          <Button onClick={handleComplete} autoFocus>
+          <Button
+            onClick={() => dispatch(setModalClose())}
+            sx={{
+              padding: '.75rem 1.3rem',
+              color: 'black',
+              '&:hover': {
+                backgroundColor: 'rgb(239,239,240)',
+              },
+            }}>
+            cancel
+          </Button>
+          <Button
+            onClick={handleComplete}
+            autoFocus
+            sx={{
+              padding: '.75rem 1.3rem',
+              backgroundColor: '#56CCF2',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: '#56a5f2',
+              },
+            }}>
             Yes
           </Button>
         </DialogActions>
       </Dialog>
 
       <Dialog
+        sx={{ maxWidth: '30rem', marginInline: 'auto' }}
         open={cancelOpen}
         onClose={'handleClose'}
         aria-labelledby='alert-dialog-title'
@@ -69,9 +96,26 @@ const OperationCard = () => {
         </DialogTitle>
         <DialogContent></DialogContent>
         <DialogActions>
-          <Button sx={{color:'black'}} onClick={()=>dispatch(setModalClose())}>cancel</Button>
           <Button
-            sx={{padding:'.75rem 1.3rem', backgroundColor:'red' ,color:'white'}}
+            sx={{
+              padding: '.75rem 1.3rem',
+              color: 'black',
+              '&:hover': {
+                backgroundColor: 'rgb(239,239,240)',
+              },
+            }}
+            onClick={() => dispatch(setModalClose())}>
+            cancel
+          </Button>
+          <Button
+            sx={{
+              padding: '.75rem 1.3rem',
+              backgroundColor: '#EB5757',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'darkred',
+              },
+            }}
             onClick={handleCancel}
             autoFocus>
             Yes
