@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchChartdata } from '../../features/home/chartSlice';
 import {
   LineChart,
   Line,
@@ -10,58 +13,16 @@ import {
 } from 'recharts';
 
 const Chart = () => {
-  const data = [
-    {
-      name: 'January',
-      items: 300,
-    },
-    {
-      name: 'February',
-      items: 800,
-    },
-    {
-      name: 'March',
-      items: 2000,
-    },
-    {
-      name: 'April',
-      items: 2080,
-    },
-    {
-      name: 'May',
-      items: 1000,
-    },
-    {
-      name: 'June',
-      items: 1000,
-    },
-    {
-      name: 'July',
-      items: 2000,
-    },
-    {
-      name: 'August',
-      items: 1780,
-    },
-    {
-      name: 'September',
-      items: 1000,
-    },
-    {
-      name: 'October',
-      items: 80,
-    },
-    {
-      name: 'November',
-      items: 1000,
-    },
-    {
-      name: 'December',
-      items: 2580,
-    },
-  ];
+  const chartData = useSelector((state) => state.chart.data);
+  console.log('chartData', chartData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchChartdata());
+  }, [dispatch]);
+
+
   return (
-    <LineChart width={800} height={350} data={data}>
+    <LineChart width={800} height={350} data={chartData}>
       <CartesianGrid strokeDasharray='3 3' />
       <XAxis dataKey='name' padding={{ left: 0, right: 0 }} />
       <YAxis />

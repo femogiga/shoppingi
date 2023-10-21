@@ -10,7 +10,7 @@ const allList = async (req, res) => {
         shoppingList: true,
       },
     });
-    console.log('result=', result);
+    // console.log('result=', result);
 
     const groupedData = {};
     result.forEach((entry) => {
@@ -21,7 +21,7 @@ const allList = async (req, res) => {
         groupedData[shoppingListId] = [entry];
       }
     });
-    console.log('groupedData=', groupedData);
+    // console.log('groupedData=', groupedData);
     res.status(200).json(groupedData);
   } catch (error) {
     res.status(500).json({ message: error.message });

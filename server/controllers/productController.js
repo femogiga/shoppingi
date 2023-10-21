@@ -11,7 +11,7 @@ const getCategories = async (categoryName) => {
     create: { category_name: categoryName },
     update: {},
   });
-  console.log('====>', result);
+  // console.log('====>', result);
   return result.id;
 };
 
@@ -36,10 +36,10 @@ const addProduct = async (req, res) => {
         note: note,
       },
     });
-    console.log(forCat);
+    // console.log(forCat);
     res.status(200).json({ message: 'Product added successfully' });
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(500).json({ message: err.message });
   }
 };
@@ -52,10 +52,10 @@ const deleteProduct = async (req, res) => {
         id: parseInt(id),
       },
     });
-    console.log(product)
+    // console.log(product)
     res.status(200).json({ message: 'Successfully deleted' });
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(500).json(err);
   } finally {
     await prisma.$disconnect();
