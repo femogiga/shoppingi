@@ -12,6 +12,7 @@ import shoppingListReducer from './home/shoppingList';
 import completeReducer from './history/completeSlice';
 import activeShoppingListReducer from './home/activeShoppingListSlice';
 import sidebarReducer from './home/sidebarSlice';
+import modalReducer from './home/modalSlice';
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
@@ -27,5 +28,6 @@ export const store = configureStore({
     complete: completeReducer,
     activeShoppingList: activeShoppingListReducer,
     sidebar: sidebarReducer,
+    modal: modalReducer,
   },
 });

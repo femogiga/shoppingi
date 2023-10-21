@@ -8,9 +8,7 @@ const allList = async (req, res) => {
       include: {
         product: true,
         shoppingList: true,
-
       },
-     
     });
     console.log('result=', result);
 

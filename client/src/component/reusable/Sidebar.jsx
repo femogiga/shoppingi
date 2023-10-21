@@ -3,9 +3,6 @@ import logo from '../../assets/logo.svg';
 import { NavLink } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
 
-
-
-
 const Sidebar = () => {
   const cart = useSelector((state) => state.cart);
   const visible = useSelector((state) => state.sidebar.visibility);
@@ -19,7 +16,7 @@ const Sidebar = () => {
       <div className='three-icons flex flex-column space-between'>
         <NavLink to='/home'>
           <div>
-            <Tooltip title='home'>
+            <Tooltip title='home' arrow placement='right'>
               <span className='material-symbols-outlined'>
                 format_list_bulleted
               </span>
@@ -28,14 +25,14 @@ const Sidebar = () => {
         </NavLink>
         <NavLink to='/history'>
           <div>
-            <Tooltip title='history'>
+            <Tooltip title='history' arrow placement='right'>
               <span className='material-symbols-outlined'>replay</span>
             </Tooltip>
           </div>
         </NavLink>
         <NavLink to='/statistics'>
           <div>
-            <Tooltip title='Statistics'>
+            <Tooltip title='Statistics' arrow placement='right'>
               <span className='material-symbols-outlined'>insert_chart</span>
             </Tooltip>
           </div>
@@ -49,20 +46,22 @@ const Sidebar = () => {
           style={{ color: 'white' }}>
           shopping_cart
         </span>
-        {cart.length > 0 ? (<span
-          className='bg-red'
-          style={{
-            backgroundColor: 'red',
-            padding: '.2rem .4rem',
-            fontSize: '.5rem',
-            color: 'white',
-            position: 'absolute',
-            top: '-.4rem',
-            right: 0,
-            borderRadius: '.2rem',
-          }}>
-          {cart.length}
-        </span>) : null}
+        {cart.length > 0 ? (
+          <span
+            className='bg-red'
+            style={{
+              backgroundColor: 'red',
+              padding: '.2rem .4rem',
+              fontSize: '.5rem',
+              color: 'white',
+              position: 'absolute',
+              top: '-.4rem',
+              right: 0,
+              borderRadius: '.2rem',
+            }}>
+            {cart.length}
+          </span>
+        ) : null}
       </div>
     </div>
   );
