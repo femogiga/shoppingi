@@ -6,6 +6,18 @@ import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
 import { add } from '../../features/home/cartSlice';
 import { deleteProduct } from '../../features/home/deleteProductSlice';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { Button } from '@mui/material';
+import {
+  setCancelOpen,
+  setCompleteOpen,
+  setModalClose,
+  setDeleteOpen,
+} from '../../features/home/modalSlice';
 
 const InformationCard = () => {
   const navigate = useNavigate();
@@ -17,13 +29,58 @@ const InformationCard = () => {
   };
 
   const data = useSelector((state) => state.informationCard.data);
-  console.log('myData', data);
+  const deleteOpen = useSelector((state) => state.modal.deleteOpen);
+  // console.log('myData', data);
   const handleDeleteCard = (e, id) => {
     e.preventDefault();
     dispatch(deleteProduct(data?.id));
+    dispatch(setModalClose());
+   window.location.reload();
+  };
+
+  const handleDeleteModalState = (e) => {
+    e.preventDefault();
+    dispatch(setDeleteOpen(true));
   };
   return (
     <div className='information-card pad-2 flex flex-column space-between row gap-2'>
+      <Dialog
+        sx={{ maxWidth: '30rem', marginInline: 'auto' }}
+        open={deleteOpen}
+        onClose={'handleClose'}
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'>
+        <DialogTitle id='alert-dialog-title'>
+          {'Are you sure that you want to delete this item?'}
+        </DialogTitle>
+        <DialogContent></DialogContent>
+        <DialogActions>
+          <Button
+            sx={{
+              padding: '.75rem 1.3rem',
+              color: 'black',
+              '&:hover': {
+                backgroundColor: 'rgb(239,239,240)',
+              },
+            }}
+            onClick={() => dispatch(setModalClose())}>
+            cancel
+          </Button>
+          <Button
+            sx={{
+              padding: '.75rem 1.3rem',
+              backgroundColor: '#EB5757',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'darkred',
+              },
+            }}
+            onClick={handleDeleteCard}
+            autoFocus>
+            Yes
+          </Button>
+        </DialogActions>
+      </Dialog>
       <div>
         <Link className='font-orange' onClick={handleGoBack}>
           <span>&#8592;</span> back
@@ -54,7 +111,10 @@ const InformationCard = () => {
         </p>
       </div>
       <form className='flex justify-center col-gap-2'>
-        <button className='delete' onClick={handleDeleteCard}>
+        {/* <button className='delete' onClick={handleDeleteCard}>
+          delete
+        </button> */}
+        <button className='delete' onClick={handleDeleteModalState}>
           delete
         </button>
         <button

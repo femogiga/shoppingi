@@ -3,28 +3,28 @@ import { createSlice } from '@reduxjs/toolkit';
 export const modalSlice = createSlice({
   name: 'modal',
   initialState: {
-    saveOpen: false,
+    deleteOpen: false,
     completeOpen: false,
     cancelOpen: false,
   },
   reducers: {
-    setSaveOpen: (state, action) => {
-      state.saveOpen = action.payload;
+    setDeleteOpen: (state, action) => {
+      state.deleteOpen = action.payload;
     },
     setCompleteOpen: (state, action) => {
       state.completeOpen = action.payload;
     },
     setCancelOpen: (state, action) => {
       state.cancelOpen = action.payload;
-      },
-      setModalClose: (state) => {
-          state.cancelOpen = false;
-          state.completeOpen = false;
-          state.saveOpen = false;
-    }
+    },
+    setModalClose: (state) => {
+      state.cancelOpen = false;
+      state.completeOpen = false;
+      state.deleteOpen = false;
+    },
   },
 });
 
-
-export const { setSaveOpen, setCompleteOpen, setCancelOpen ,setModalClose} = modalSlice.actions
-export default modalSlice.reducer
+export const { setDeleteOpen, setCompleteOpen, setCancelOpen, setModalClose } =
+  modalSlice.actions;
+export default modalSlice.reducer;

@@ -50,7 +50,7 @@ const OperationCard = () => {
       <Dialog
         sx={{ maxWidth: '30rem', marginInline: 'auto' }}
         open={completeOpen}
-        onClose={'handleClose'}
+        onClose={() => dispatch(setModalClose())}
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'>
         <DialogTitle id='alert-dialog-title'>
