@@ -14,7 +14,7 @@ import {
 
 const Chart = () => {
   const chartData = useSelector((state) => state.chart.data);
-  console.log('chartData', chartData);
+  //  console.log('chartData', chartData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchChartdata());

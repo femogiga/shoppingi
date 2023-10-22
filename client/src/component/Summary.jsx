@@ -65,7 +65,7 @@ const Summary = () => {
     });
   }
 
-  console.log('result', result);
+  // console.log('result', result);
 
   return (
     <div className='summary'>

@@ -18,9 +18,9 @@ const EnterCategory = () => {
   const activeMessage = useSelector(
     (state) => state.activeShoppingList.message
   );
-  console.log('activeList', activeList);
+  // console.log('activeList', activeList);
   const dispatch = useDispatch();
-  console.log(listName);
+  // console.log(listName);
   //dispatch this with the data to shopiingList
 
   const handleInputChange = (e) => {
@@ -38,6 +38,7 @@ const EnterCategory = () => {
     console.log({ listName: listName, data });
     dispatch(saveShoppingList({ listName: listName, ...data }));
     dispatch(clear());
+    window.location.reload()
   };
 
   useEffect(() => {

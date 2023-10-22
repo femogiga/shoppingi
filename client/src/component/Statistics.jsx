@@ -30,12 +30,12 @@ const Statistics = () => {
   for (let keys in statData[0]) {
     arr.push({ keys: keys, value: statData[0][keys] });
   }
-  console.log('stat', arr);
+  // console.log('stat', arr);
   const statMap = arr.map((item) => {
     return item.value;
   });
   let newArr = [];
-  console.log('statMap', statMap);
+  // console.log('statMap', statMap);
   statMap.forEach((item) => {
     const mappedArray = item.map((array) => {
       const { id, product, count } = array;
@@ -78,14 +78,14 @@ const Statistics = () => {
       count: groupedDataByCategory[key],
     }));
 
-  console.log(sortedGroupedData);
+  // console.log(sortedGroupedData);
 
-  console.log('grop', groupedDataByCategory);
+  // console.log('grop', groupedDataByCategory);
   //
   // Converting the object back to an array
   const result = Object.values(groupedData);
 
-  console.log('result', result);
+  // console.log('result', result);
 
   const mapCategories = (id) => {
     const category = categories.find((item) => item.id === id);
@@ -96,7 +96,7 @@ const Statistics = () => {
     return acc + currentValue.count;
   }, 0);
 
-  console.log('totalCount', totalCount);
+  // console.log('totalCount', totalCount);
   return (
     <div className='statistics'>
       <aside className='sidebar'>

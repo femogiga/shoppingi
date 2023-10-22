@@ -3,12 +3,10 @@ import { Button } from '@mui/material';
 import AddCard from './AddCard';
 import Complete from './Complete';
 import EnterCategory from './EnterCategory';
-import ItemCard from './ItemCard';
 import ItemCard2 from './ItemCard2';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -88,7 +86,7 @@ const OperationCard = () => {
       <Dialog
         sx={{ maxWidth: '30rem', marginInline: 'auto' }}
         open={cancelOpen}
-        onClose={'handleClose'}
+        onClose={() => dispatch(setModalClose())}
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'>
         <DialogTitle id='alert-dialog-title'>

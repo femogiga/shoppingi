@@ -15,7 +15,7 @@ const Meter = ({product,stat}) => {
         <p>{stat + '%'}</p>
       </div>
       <div>
-        <meter style={meterStyle} min={'0'} max={'100'} value={stat}></meter>
+        <meter style={meterStyle} min={'0'} max={'100'} value={stat || 0}></meter>
       </div>
     </article>
   );

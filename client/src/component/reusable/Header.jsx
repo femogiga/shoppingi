@@ -6,7 +6,7 @@ import {
 
 const Header = () => {
   const search = useSelector((state) => state.home.search);
-  console.log(search);
+  // console.log(search);
   const dispatch = useDispatch();
   return (
     <header className='header flex space-between flow-2'>

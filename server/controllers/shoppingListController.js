@@ -72,12 +72,24 @@ const getActiveList = async (req, res) => {
       where: {
         progress: 'Active',
       },
+      include: {
+        products: {
+          include: {
+            product: {
+              include: {
+                cat: true,
+              },
+            },
+          },
+        },
+      },
     });
 
-    // console.log(activeList);
+    console.log(activeList);
     res.status(200).json(activeList);
   } catch (err) {
-    res.status(500).json(activeList);
+    console.log(err);
+    res.status(500).json(err);
   }
 };
 

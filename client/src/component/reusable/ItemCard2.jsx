@@ -9,10 +9,11 @@ const ItemCard2 = () => {
   const [checkboxStatus, setCheckboxStatus] = useState({});
   const dispatch = useDispatch();
   const shoppingList = useSelector((state) => state.cart);
+  // const activeList = useSelector((state) => state.activeShoppingList.data)
   const result = [];
   // const checkboxChange = useSelector((state) => state.checkbox.checked);
   // const activeList = useSelector((state) => state.shoppingList.data);
-
+// console.log('activeList===>',activeList)
   const handleCheckboxInput = (productId) => {
     setCheckboxStatus((prevState) => ({
       ...prevState,
@@ -20,7 +21,7 @@ const ItemCard2 = () => {
     }))
 
   }
-  console.log('shoppinList', shoppingList)
+  // console.log('shoppinList', shoppingList)
 
   shoppingList.forEach((item) => {
     const { category, ...rest } = item;
@@ -34,18 +35,19 @@ const ItemCard2 = () => {
     }
   });
 
-  console.log(result);
-
+  // console.log(result);
+  // const array = activeList[0]
+  // console.log(array?.products)
   return (
     <article>
-      {/* <h5 className='flow-1 pad-inline-2'>Fruit and vegetable</h5> */}
+
       <ul className='cart-ul pad-inline-2'>
-        {result.map((product, index) => (
+        {  result.map((product, index) => (
           <>
             <h5 className='flow-1 clr-quicksand' key={product.category}>
               {product.category}
             </h5>
-            {product?.items?.map((item) => (
+            { product?.items?.map((item) => (
               <ProductCard
                 id={item?.product_name}
                 key={item?.id + 'cs'}

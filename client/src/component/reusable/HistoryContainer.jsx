@@ -7,10 +7,10 @@ import { dateFormat } from '../../utility/timeUtility';
 import { Link } from 'react-router-dom';
 
 const HistoryContainer = () => {
-  const cssColor = useSelector((state) => state.historyCard.cssColor);
+  // const cssColor = useSelector((state) => state.historyCard.cssColor);
   const hisData = useSelector((state) => state.historyCard.data);
   const dispatch = useDispatch();
-  const holding = 'completed';
+  // const holding = 'completed';
   // const historyD = dispatch(historyData())
   useEffect(() => {
     // holding === dispatch(setColor());
@@ -21,15 +21,15 @@ const HistoryContainer = () => {
 
   for (let keys in hisData[0]) {
     arr.push({ keys: keys, value: hisData[0][keys] });
-    console.log('arr', arr);
+    // console.log('arr', arr);
   }
 
 
-  
+
   return (
     <article className='history-card  pad-inline-3'>
       {arr.map((item, index) => (
-        <>
+        <div key={`history-container-${item?.value[0]?.shoppingList?.listName}`}>
           <p
             className='flow-1'
              key={item?.value[0]?.shoppingList?.listName}
@@ -46,7 +46,7 @@ const HistoryContainer = () => {
 
             linkData={item?.value}
           />
-        </>
+        </div>
       ))}
     </article>
   );

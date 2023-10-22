@@ -28,7 +28,7 @@ const Home = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  console.log('data', products);
+  // console.log('data', products);
   return (
     <div className='home' ref={parent}>
       <aside className='sidebar'>
