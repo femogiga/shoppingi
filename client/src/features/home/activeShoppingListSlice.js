@@ -1,29 +1,41 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import apiService from '../../apiService';
 
+// export const fetchActiveList = createAsyncThunk(
+//   'activeShoppingList/fetchActiveList',
+//   async () => {
+//     const response = await fetch(
+//       'http://localhost:9000/shoppinglist/activelist'
+//     );
+//     const data = await response.json();
+//     return data;
+//   }
+// );
 
 export const fetchActiveList = createAsyncThunk(
   'activeShoppingList/fetchActiveList',
   async () => {
-    const response = await fetch('http://localhost:9000/shoppinglist/activelist');
-    const data = await response.json();
+    const response = await apiService.get('shoppinglist/activelist');
+    const data = await response.data;
     return data;
   }
 );
- const activeShoppingListSlice = createSlice({
+const activeShoppingListSlice = createSlice({
   name: 'activeShoppingList',
   initialState: {
     data: [],
-    message:''
+    message: '',
   },
 
-   reducers: {
-     setMessage: (state) => {
-       state.message = 'Only one active list is allowed cancel or complete ' +  state.data[0].listName
-
-     },
-     clearMessage: (state) => {
-      state.message = ''
-     },
+  reducers: {
+    setMessage: (state) => {
+      state.message =
+        'Only one active list is allowed cancel or complete ' +
+        state.data[0].listName;
+    },
+    clearMessage: (state) => {
+      state.message = '';
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -41,5 +53,5 @@ export const fetchActiveList = createAsyncThunk(
   },
 });
 
-export const { setMessage ,clearMessage} = activeShoppingListSlice.actions;
+export const { setMessage, clearMessage } = activeShoppingListSlice.actions;
 export default activeShoppingListSlice.reducer;

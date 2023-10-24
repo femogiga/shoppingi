@@ -35,7 +35,7 @@ const InformationCard = () => {
     e.preventDefault();
     dispatch(deleteProduct(data?.id));
     dispatch(setModalClose());
-   window.location.reload();
+    window.location.reload();
   };
 
   const handleDeleteModalState = (e) => {
@@ -43,11 +43,11 @@ const InformationCard = () => {
     dispatch(setDeleteOpen(true));
   };
   return (
-    <div className='information-card pad-2 flex flex-column space-between row gap-2'>
+    <div className='information-card pad-1 flex flex-column space-between row gap-2'>
       <Dialog
         sx={{ maxWidth: '30rem', marginInline: 'auto' }}
         open={deleteOpen}
-        onClose={'handleClose'}
+        onClose={() => dispatch(setModalClose())}
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'>
         <DialogTitle id='alert-dialog-title'>

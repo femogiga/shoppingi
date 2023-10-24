@@ -1,10 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import apiService from '../../apiService';
+
+// export const historyData = createAsyncThunk(
+//   'historyCard/historyData',
+//   async () => {
+//     const response = await fetch('http://localhost:9000/shoppinglist');
+//     const data = await response.json();
+//     return data;
+//   }
+// );
 
 export const historyData = createAsyncThunk(
   'historyCard/historyData',
   async () => {
-    const response = await fetch('http://localhost:9000/shoppinglist');
-    const data = await response.json();
+    const response = await apiService.get('/shoppinglist');
+    const data = await response.data;
     return data;
   }
 );
@@ -34,7 +44,7 @@ export const historyCardSlice = createSlice({
       })
       .addCase(historyData.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.data= [action.payload];
+        state.data = [action.payload];
       })
       .addCase(historyData.rejected, (state, action) => {
         state.status = 'failed';

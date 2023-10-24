@@ -1,12 +1,22 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import FormCard from '../../component/reusable/FormCard';
 import OperationCard from '../../component/reusable/OperationCard';
+import apiService from '../../apiService';
+
+// export const fetchProducts = createAsyncThunk(
+//   'home/fetchProducts',
+//   async () => {
+//     const response = await fetch('http://localhost:9000/category');
+//     const data = await response.json();
+//     return data;
+//   }
+// );
 
 export const fetchProducts = createAsyncThunk(
   'home/fetchProducts',
   async () => {
-    const response = await fetch('http://localhost:9000/category');
-    const data = await response.json();
+    const response = await apiService.get('/category');
+    const data = await response.data;
     return data;
   }
 );
@@ -20,7 +30,7 @@ export const homeSlice = createSlice({
       form: false,
     },
     informationCardData: [],
-    search:''
+    search: '',
   },
   reducers: {
     setActiveCard: (state, action) => {
@@ -30,7 +40,6 @@ export const homeSlice = createSlice({
             operation: false,
             information: true,
             form: false,
-
           };
           break;
         case 'formCard':
@@ -50,7 +59,7 @@ export const homeSlice = createSlice({
     },
 
     handleInputChange: (state, action) => {
-      state.search = action.payload
+      state.search = action.payload;
     },
     findById: (state, action) => {
       const result = state.data.find((item) => {
@@ -60,8 +69,8 @@ export const homeSlice = createSlice({
       return result;
     },
     searchProducts: (state, action) => {
-     return state.data.filter(item=> item.product_name==(state.search))
-     }
+      return state.data.filter((item) => item.product_name == state.search);
+    },
   },
   extraReducers: (builder) => {
     builder

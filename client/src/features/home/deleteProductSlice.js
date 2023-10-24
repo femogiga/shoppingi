@@ -1,15 +1,29 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import apiService from '../../apiService';
+
+// export const deleteProduct = createAsyncThunk(
+//   'deleteProduct/deleteProduct',
+//   async (id) => {
+//     const response = await fetch(`http://localhost:9000/products/${id}`, {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     });
+//     const data = await response.json();
+//     return data;
+//   }
+// );
 
 export const deleteProduct = createAsyncThunk(
   'deleteProduct/deleteProduct',
   async (id) => {
-    const response = await fetch(`http://localhost:9000/products/${id}`, {
-      method: 'DELETE',
+    const response = await apiService.remove(`/products/${id}`, {
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    const data = await response.json();
+    const data = await response.data;
     return data;
   }
 );

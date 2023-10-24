@@ -1,28 +1,39 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import apiService from '../../apiService';
 
+// export const saveProduct = createAsyncThunk(
+//   'formCard/saveProduct',
+//   async (dataToPost) => {
+//       const response = await fetch('http://localhost:9000/products', {
+//         method: 'POST',
+//         body: JSON.stringify(dataToPost),
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//         // console.log(state)
+//       const data = await response.json();
+//       return data;
+//     });
 
-export const saveProduct = createAsyncThunk('formCard/saveProduct', async (dataToPost) => {
+export const saveProduct = createAsyncThunk(
+  'formCard/saveProduct',
+  async (dataToPost) => {
+    const response = await apiService.post('/products', dataToPost);
+    const data = await response.data;
+    return data;
+  }
+);
+// console.log(state)
 
-
-  const response = await fetch('http://localhost:9000/products', {
-    method: 'POST',
-    body: JSON.stringify(dataToPost),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-    // console.log(state)
-  const data = await response.json();
-  return data;
-});
 export const formCardSlice = createSlice({
   name: 'formCard',
-initialState:{
+  initialState: {
     product_name: '',
     note: '',
     imageUrl: '',
     category_name: '',
-},
+  },
   reducers: {
     updateFormField: (state, action) => {
       const { fieldName, value } = action.payload;

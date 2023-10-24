@@ -1,36 +1,44 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import apiService from '../../apiService';
 
+// export const saveShoppingList = createAsyncThunk(
+//   'shoppingList/saveShoppingList',
+//   async (dataToSave) => {
+//     const response = await fetch(`http://localhost:9000/shoppinglist`, {
+//       method: 'POST',
+//       body: JSON.stringify(dataToSave),
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     });
+//     const data = await response.json();
+//     return data;
+//   }
+// );
 
 export const saveShoppingList = createAsyncThunk(
   'shoppingList/saveShoppingList',
   async (dataToSave) => {
-    const response = await fetch(`http://localhost:9000/shoppinglist`, {
-      method: 'POST',
-      body: JSON.stringify(dataToSave),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const data = await response.json();
+    const response = await apiService.post(`/shoppinglist`, dataToSave);
+    const data = await response.data;
     return data;
   }
 );
 
 const shoppingListSlice = createSlice({
   name: 'shoppingList',
-    initialState: {
+  initialState: {
+    listName: '',
+  },
 
-          listName:''
-      },
-
-    reducers: {
-        getListName: (state, action) => {
-            const { field, value } = action.payload
-            state[field] = value
-      },
-      clear: (state, action) => {
-        state.listName=''
-       }
+  reducers: {
+    getListName: (state, action) => {
+      const { field, value } = action.payload;
+      state[field] = value;
+    },
+    clear: (state, action) => {
+      state.listName = '';
+    },
   },
 
   extraReducers: (builder) => {
@@ -47,5 +55,5 @@ const shoppingListSlice = createSlice({
   },
 });
 
-export const {getListName, extraReducers,clear} = shoppingListSlice.actions
-export default shoppingListSlice.reducer
+export const { getListName, extraReducers, clear } = shoppingListSlice.actions;
+export default shoppingListSlice.reducer;

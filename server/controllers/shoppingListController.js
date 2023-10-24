@@ -85,10 +85,10 @@ const getActiveList = async (req, res) => {
       },
     });
 
-    console.log(activeList);
+    // console.log(activeList);
     res.status(200).json(activeList);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(500).json(err);
   }
 };
@@ -165,7 +165,7 @@ const countByMonth = async (req, res) => {
     return monthNames.indexOf(a.name) - monthNames.indexOf(b.name);
   });
 
-  console.log(sortedData);
+  // console.log(sortedData);
   res.status(200).json(sortedData);
 };
 
