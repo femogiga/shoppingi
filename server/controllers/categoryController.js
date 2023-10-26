@@ -26,4 +26,15 @@ const getAll = async (req, res) => {
     await prisma.$disconnect();
   }
 };
-module.exports = { categoryproduct, getAll };
+
+
+const createCategory = async (req, res) => {
+  const { category_name } = req.body;
+  const result = await prisma.category.create({
+    data: {
+      category_name:category_name
+    }
+  })
+  res.status(201).json(result)
+ }
+module.exports = { categoryproduct, getAll ,createCategory};
