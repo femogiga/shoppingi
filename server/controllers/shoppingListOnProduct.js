@@ -11,7 +11,7 @@ const allList = async (req, res) => {
       },
     });
     // console.log('result=', result);
-
+// for prisma client
     const groupedData = {};
     result.forEach((entry) => {
       const shoppingListId = entry.shoppingListId;
