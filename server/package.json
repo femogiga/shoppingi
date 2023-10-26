@@ -22,5 +22,8 @@
   "description": "",
   "devDependencies": {
     "prisma": "^5.4.2"
+  },
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
   }
 }
