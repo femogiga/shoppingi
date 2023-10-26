@@ -5,6 +5,7 @@ const cors = require('cors');
 const productRoute = require('./routes/productRoute');
 const categoryRoute = require('./routes/categoryRoute');
 const shoppingListRoute = require('./routes/shoppingListRoute');
+const { shoppingList } = require('./controllers/prismaClient');
 
 const app = express();
 app.use(express.json());
@@ -22,3 +23,4 @@ app.use('/', (req, res) => {
 app.listen(port, () => {
   console.log(`listening on ${port}`);
 });
+
