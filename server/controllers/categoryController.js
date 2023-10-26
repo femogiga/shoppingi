@@ -1,5 +1,5 @@
 // const prisma = require('./prismaClient');
-const { PrismaClient } = require('@prisma/client/edge')
+const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 // use `prisma` in your application to read and write data in your DB
