@@ -1,7 +1,7 @@
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require('@prisma/client/edge');
 
 const prisma = new PrismaClient();
-
+// use `prisma` in your application to read and write data in your DB
 const allList = async (req, res) => {
   try {
     const result = await prisma.shoppingListOnProduct.findMany({
