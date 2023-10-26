@@ -1,11 +1,13 @@
-import History from "./component/History";
-import Home from "./component/Home";
+import History from './component/History';
+import Home from './component/Home';
 
 function App() {
-  return <div>
-    {/* <Home/> */}
-    <History/>
-  </div>;
+  return (
+    <div>
+      <Home />
+      {/* <History/> */}
+    </div>
+  );
 }
 
 export default App;

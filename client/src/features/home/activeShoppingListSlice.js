@@ -15,7 +15,7 @@ import apiService from '../../apiService';
 export const fetchActiveList = createAsyncThunk(
   'activeShoppingList/fetchActiveList',
   async () => {
-    const response = await apiService.get('shoppinglist/activelist');
+    const response = await apiService.get('/shoppinglist/activelist');
     const data = await response.data;
     return data;
   }

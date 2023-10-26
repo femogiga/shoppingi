@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const baseUrl = 'http://localhost:9000';
+const baseUrl = 'https://shoppingify-tzdo.onrender.com';
+//const baseUrl = 'http://localhost:9000';
 
 const get = (url) => {
   return axios.get(`${baseUrl}${url}`, {
@@ -10,7 +10,6 @@ const get = (url) => {
 
 const post = (url, data) => {
   return axios.post(`${baseUrl}${url}`, data, {
-    body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json',
     },

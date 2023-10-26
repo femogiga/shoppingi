@@ -13,7 +13,7 @@ const createList = async (req, res, next) => {
   }
   const { listName, ...rest } = req.body;
   try {
-    // console.log(req.body);
+    console.log(req.body);
     // console.log('listName',listName);
     // console.log('rest=', rest)
 

@@ -16,6 +16,24 @@ import apiService from '../../apiService';
 //   }
 // );
 
+// export const saveShoppingList = createAsyncThunk(
+//   'shoppingList/saveShoppingList',
+//   async (dataToSave) => {
+//     const response = await fetch(
+//       `https://shoppingify-tzdo.onrender.com/shoppinglist`,
+//       {
+//         method: 'POST',
+//         body: JSON.stringify(dataToSave),
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       }
+//     );
+//     const data = await response.json();
+//     return data;
+//   }
+// );
+
 export const saveShoppingList = createAsyncThunk(
   'shoppingList/saveShoppingList',
   async (dataToSave) => {
