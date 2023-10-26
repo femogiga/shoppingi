@@ -43,7 +43,7 @@ const ItemCard2 = () => {
 
       <ul className='cart-ul pad-inline-2'>
         {  result.map((product, index) => (
-          <>
+          <div key={`product-${index}`}>
             <h5 className='flow-1 clr-quicksand' key={product.category}>
               {product.category}
             </h5>
@@ -60,7 +60,7 @@ const ItemCard2 = () => {
 
               />
             ))}
-          </>
+          </div>
         ))}
 
         {/* <ProductCard />

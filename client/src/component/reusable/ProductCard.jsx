@@ -24,7 +24,7 @@ const ProductCard = ({
     (state) => state.checkbox.recycleBinState
   );
   const cartData = useSelector((state) => state.cart);
-  console.log('cartdata', cartData);
+  // console.log('cartdata', cartData);
   // const checkboxChange = useSelector((state) => state.checkbox.checked);
   const handleDelete = () => {
     dispatch(deleteItem(productName));
